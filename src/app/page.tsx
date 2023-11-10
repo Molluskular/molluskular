@@ -3,10 +3,14 @@
 export default function Home() {
   return (
     <>
-      <main className="test">Next.js page</main>
+      <main className="test">
+        <div className="test2">Hello World</div>
+      </main>
       <style jsx>{`
-        main {
-          color: yellow;
+        .test {
+          .test2 {
+            font-size: 100px;
+          }
         }
       `}</style>
     </>
