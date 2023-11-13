@@ -13,7 +13,7 @@ export default function Faq() {
   ];
   return (
     <div className="page pg-05">
-      <span className="txt-01">FAQ'S</span>
+      <span className="txt-01">FAQ&apos;S</span>
       <div className="question-list">
         {qList.map((question, i) => (
           <div key={i} className="question-item">
