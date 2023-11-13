@@ -2,71 +2,36 @@
 
 import Image from "next/image";
 import Concept from "./Concept";
+import HomePage from "./Home";
+import Benefit from "./Benefit";
+import Join from "./Join";
+import Faq from "./Faq";
 
 export default function Home() {
-  const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
   return (
     <>
-      <main>
+      <main className="main">
         <div className="background">
-          <div className="page pg-01">
-            <header className="nav-bar">
-              <Image
-                src={"/logo.png"}
-                alt="logo"
-                width={50}
-                height={50}
-              ></Image>
-              <nav className="nav-content">
-                {navContent.map((text, i) => (
-                  <span key={i}>{text}</span>
-                ))}
-              </nav>
-            </header>
-            <div className="contents">
-              <div className="left">
-                <span className="txt-01 title">
-                  GET READY TO REDEFINE <br /> YOUR WORKOUT PROGRSS
-                </span>
-                <span className="txt-02">
-                  Tailored to your unique needs, our personalized AI-driven app
-                  will redefine your workout routine. <br />
-                  Guaranteeing exceptional progress and success in your fitness
-                  journey.
-                </span>
-                <div className="signup-box">
-                  <span className="title txt-03">SIGN-UP FOR EARLY ACCESS</span>
-                  <span className="txt-04">
-                    Be among the first to experience our groundbreaking
-                    features.
-                    <br />
-                    Your journey to a stronger, hearthier you starts here!
-                  </span>
-                  <div className="signup-input">
-                    <input type="email" className="input"></input>
-                    <span className="span">Sign-up</span>
-                  </div>
-                </div>
-                <span className="txt-05">
-                  By signing up, you agree to be on our email list for updates
-                  on Molluskular's launch and features.
-                  <br />
-                  <u>Opt-out anytime.</u>
-                </span>
-              </div>
-              <div className="right">
-                <img
-                  className="img"
-                  src="/lifting_man.png"
-                  alt="lifting man"
-                ></img>
-              </div>
-            </div>
-          </div>
+          <HomePage></HomePage>
           <Concept></Concept>
-          <div className="page pg-02"></div>
-          <div className="page pg-03"></div>
-          <div className="page pg-04"></div>
+          <Benefit></Benefit>
+          <Join></Join>
+          <Faq></Faq>
+          <footer>
+            <div className="logo-box">
+              <img src="/logo.png" alt="logo" className="logo" />
+              <span className="logo-txt">Molluskular</span>
+            </div>
+            <span>
+              Follow our journey towards personalizing your fitness with
+              real-time adaptable workout plans.
+            </span>
+            <div className="link-box">
+              <img src="/instagram.png" alt="logo" className="link" />
+              <img src="/twitter.png" alt="logo" className="link" />
+              <img src="/facebook.png" alt="logo" className="link" />
+            </div>
+          </footer>
         </div>
       </main>
       <style jsx>{`
@@ -79,291 +44,55 @@ export default function Home() {
         .background {
           width: 100vw;
           height: 100vh;
-          background-color: #191919;
+          background-color: #0b0b0b;
           font-weight: 100;
           .page {
             display: flex;
             flex-direction: column;
           }
+        }
 
-          .pg-01 {
-            width: 86vw;
-            height: 100vh;
-            padding: 0 7vw;
+        footer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 30px 0;
 
-            .nav-bar {
-              margin-top: 40px;
-              width: 100%;
-              height: fit-content;
-              display: flex;
-              flex-direction: row;
-              justify-content: space-between;
-              align-items: center;
-              color: white;
+          .logo-box {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
 
-              .nav-content {
-                width: 100%;
-                margin: 0 20%;
-                display: flex;
-                justify-content: space-evenly;
-              }
+            .logo {
+              width: 100px;
+              margin-right: 20px;
             }
 
-            .contents {
-              width: 100%;
-              height: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
+            .logo-txt {
+              font-size: 2em;
+              font-weight: 300;
+            }
+          }
 
-              .left {
-                width: 65%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+          .link-box {
+            margin-top: 40px;
 
-                .txt-01 {
-                  width: 100%;
-                  font-size: 3em;
-                  margin-bottom: 10px;
-                  line-height: 1.5em;
-                }
-
-                .signup-box {
-                  width: 60%;
-                  height: 180px;
-                  display: flex;
-                  flex-direction: column;
-                  justify-content: space-between;
-                  align-items: center;
-                  margin: 50px 0;
-                  padding: 30px 25px;
-                  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
-                  position: relative;
-                  border-radius: 30px;
-
-                  .txt-03 {
-                    font-size: 1.5em;
-                  }
-                  .txt-04 {
-                    font-size: 0.8em;
-                    font-weight: 100;
-                    text-align: center;
-                  }
-
-                  .signup-input {
-                    width: 50%;
-                    position: relative;
-
-                    .input {
-                      width: 100%;
-                      height: 100%;
-                      display: flex;
-                      align-items: center;
-                      padding: 5% 10%;
-                      background: transparent;
-                      border-radius: 500px;
-                      color: white;
-                      box-sizing: border-box;
-                      border: none;
-                      background-color: rgba(255, 255, 255, 0.2);
-                    }
-
-                    .span {
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      color: black;
-                      text-align: center;
-                      font-size: 0.8em;
-                      width: 30%;
-                      height: 100%;
-                      background: white;
-                      position: absolute;
-                      top: 0;
-                      right: 0;
-                      border-radius: 0px 100px 100px 0;
-                      box-sizing: border-box;
-                      font-weight: 200;
-                      box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
-                    }
-                  }
-                }
-
-                .txt-05 {
-                  width: 50%;
-                  text-align: center;
-                  margin-left: 6%;
-                }
-              }
-
-              .right {
-                width: 35%;
-                .img {
-                  width: 100%;
-                }
-              }
+            .link {
+              margin: 0 10px;
             }
           }
         }
 
         @media only screen and (max-width: 1350px) {
           .background {
-            font-size:14px;
-          .page {
-          }
-
-          .pg-01 {
-
-            .nav-bar {
-
-              .nav-content {
-              }
-            }
-
-            .contents {
-              width: 100%;
-              height: 100%;
-
-              .left {
-                width: 70%;
-                .txt-01 {
-                }
-
-                .signup-box {
-
-                  .txt-03 {
-                  }
-                  .txt-04 {
-                  }
-
-                  .signup-input {
-
-                    .input {
-                    }
-
-                    .span {
-                    }
-                  }
-                }
-
-                .txt-05 {
-                }
-              }
-
-              .right {
-                width: 30%; 
-                .img {
-                }
-              }
-            }
+            font-size: 14px;
           }
         }
 
         @media only screen and (max-width: 1250px) {
           .background {
-            font-size:14px; !important
-          .page {
-          }
-
-          .pg-01 {
-
-            .nav-bar {
-
-              .nav-content {
-              }
-            }
-
-            .contents {
-              width: 100%;
-              height: 100%;
-
-              .left {
-                width: 75%;
-                .txt-01 {
-                }
-
-                .signup-box {
-
-                  .txt-03 {
-                  }
-                  .txt-04 {
-                  }
-
-                  .signup-input {
-
-                    .input {
-                    }
-
-                    .span {
-                    }
-                  }
-                }
-
-                .txt-05 {
-                }
-              }
-
-              .right {
-                width: 25%;
-                .img {
-                }
-              }
-            }
-          }
-        }
-
-        @media only screen and (max-width: 1180px) {
-          .background {
-            font-size:12px;
-          .page {
-          }
-
-          .pg-01 {
-
-            .nav-bar {
-
-              .nav-content {
-              }
-            }
-
-            .contents {
-              width: 100%;
-              height: 100%;
-
-              .left {
-                width: 75%;
-                .txt-01 {
-                }
-
-                .signup-box {
-
-                  .txt-03 {
-                  }
-                  .txt-04 {
-                  }
-
-                  .signup-input {
-
-                    .input {
-                    }
-
-                    .span {
-                    }
-                  }
-                }
-
-                .txt-05 {
-                }
-              }
-
-              .right {
-                width: 25%;
-                .img {
-                }
-              }
-            }
+            font-size: 12px;
           }
         }
       `}</style>

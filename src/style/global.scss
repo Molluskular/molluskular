@@ -123,6 +123,14 @@ table {
   border-spacing: 0;
 }
 
+html {
+  background-color: #0b0b0b;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
 input {
   outline: none;
 }
@@ -151,6 +159,12 @@ span {
   font-family: "Trap";
   font-weight: 200;
   src: url("/fonts/Trap-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Trap";
+  font-weight: 300;
+  src: url("/fonts/Trap-Regular.otf") format("opentype");
 }
 
 @font-face {
