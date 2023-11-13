@@ -39,7 +39,7 @@ export default function HomePage() {
           </div>
           <span className="txt-05">
             By signing up, you agree to be on our email list for updates on
-            Molluskular's launch and features.
+            Molluskular&apos;s launch and features.
             <br />
             <u>Opt-out anytime.</u>
           </span>

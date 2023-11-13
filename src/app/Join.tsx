@@ -14,7 +14,7 @@ export default function Join() {
       </div>
       <span className="txt-03">
         By signing up, you agree to be on our email list for <br />
-        updates on Molluskular's launch and features.
+        updates on Molluskular&apos;s launch and features.
         <br />
         <u>Opt-out anytime.</u>
       </span>
