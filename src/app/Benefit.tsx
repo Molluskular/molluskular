@@ -57,6 +57,10 @@ export default function Benefit() {
               height: auto;
               border-radius: 15px 0px 0px 15px;
             }
+            .benefit-img {
+              width: 40%;
+            }
+
             .benefit-cards {
               display: flex;
               flex-direction: column;
