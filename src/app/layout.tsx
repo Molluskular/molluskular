@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,3 +20,13 @@ export default function RootLayout({
     </html>
   );
 }
+
+// Todo: add code from Google Analytics package
+export const App = ({ Component, pageProps }:any) => {
+  return (
+    <>
+      <GoogleAnalytics trackPageViews />
+      <Component {...pageProps} />
+    </>
+  );
+};
