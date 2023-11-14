@@ -9,24 +9,24 @@ import useMoveScroll from "../hook/useMoveScroll";
 
 export default function Home() {
   const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
-  const [home, useHome]: any = useMoveScroll();
-  const [concept, useConcept]: any = useMoveScroll();
-  const [benefit, useBenefit]: any = useMoveScroll();
-  const [faq, useFaq]: any = useMoveScroll();
+  const [home, UseHome]: any = useMoveScroll();
+  const [concept, UseConcept]: any = useMoveScroll();
+  const [benefit, UseBenefit]: any = useMoveScroll();
+  const [faq, UseFaq]: any = useMoveScroll();
 
   const onNavClick = (value: string) => {
     switch (value) {
       case "Home":
-        useHome();
+        UseHome();
         break;
       case "Our Concept":
-        useConcept();
+        UseConcept();
         break;
       case "Benefit":
-        useBenefit();
+        UseBenefit();
         break;
       case "FAQ":
-        useFaq();
+        UseFaq();
         break;
       default:
         break;
