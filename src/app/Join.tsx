@@ -25,7 +25,10 @@ export default function Join() {
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          padding: 100px 0;
+          padding: 100px 7vw;
+          position: relative;
+          z-index: 5;
+
           .txt-01 {
             font-weight: 300;
             font-size: 2em;
@@ -44,7 +47,7 @@ export default function Join() {
               height: 100%;
               display: flex;
               align-items: center;
-              padding: 5% 10%;
+              padding: 4% 10%;
               background: transparent;
               border-radius: 500px;
               color: white;
@@ -76,6 +79,14 @@ export default function Join() {
           .txt-03 {
             margin-top: 30px;
             text-align: center;
+          }
+        }
+
+        @media only screen and (max-width: 760px) {
+          .pg-04 {
+            .signup-input {
+              width: 80%;
+            }
           }
         }
       `}</style>

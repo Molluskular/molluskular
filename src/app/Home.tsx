@@ -1,19 +1,8 @@
 "use client";
 
-import Image from "next/image";
-
-export default function HomePage() {
-  const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
+export default function HomePage({ scroll }: any) {
   return (
-    <div className="page pg-01">
-      <header className="nav-bar">
-        <img src={"/logo.png"} alt="logo" className="logo"></img>
-        <nav className="nav-content">
-          {navContent.map((text, i) => (
-            <span key={i}>{text}</span>
-          ))}
-        </nav>
-      </header>
+    <div className="page pg-01" ref={scroll}>
       <div className="contents">
         <div className="left">
           <span className="txt-01 title">
@@ -21,16 +10,17 @@ export default function HomePage() {
           </span>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
-            redefine your workout routine. <br />
-            Guaranteeing exceptional progress and success in your fitness
-            journey.
+            <br /> redefine your workout routine, guaranteeing exceptional
+            progress and
+            <br /> success in your fitness journey.
           </span>
           <div className="signup-box">
+            <img className="bg-img" src="/background/bg_04.png" />
             <span className="title txt-03">SIGN-UP FOR EARLY ACCESS</span>
             <span className="txt-04">
               Be among the first to experience our groundbreaking features.
               <br />
-              Your journey to a stronger, hearthier you starts here!
+              Your journey to a stronger, healthier you starts here!
             </span>
             <div className="signup-input">
               <input type="email" className="input"></input>
@@ -38,8 +28,8 @@ export default function HomePage() {
             </div>
           </div>
           <span className="txt-05">
-            By signing up, you agree to be on our email list for updates on
-            Molluskular&apos;s launch and features.
+            By signing up, you agree to be on our email list for <br />
+            updates on Molluskular&apos;s launch and features.
             <br />
             <u>Opt-out anytime.</u>
           </span>
@@ -51,29 +41,9 @@ export default function HomePage() {
       <style jsx>{`
         .pg-01 {
           width: 85vw;
-          height: 100vh;
+          height: 95vh;
           padding: 0 7vw;
-
-          .nav-bar {
-            margin-top: 40px;
-            width: 100%;
-            height: fit-content;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            color: white;
-
-            .logo{
-              width:100px;
-            }
-            .nav-content {
-              width: 100%;
-              margin: 0 20%;
-              display: flex;
-              justify-content: space-evenly;
-            }
-          }
+          z-index: -2;
 
           .contents {
             width: 100%;
@@ -81,8 +51,10 @@ export default function HomePage() {
             display: flex;
             justify-content: center;
             align-items: center;
+            position:relative;
 
             .left {
+              z-index: 3;
               width: 65%;
               height: 100%;
               display: flex;
@@ -108,17 +80,30 @@ export default function HomePage() {
                 box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
                 position: relative;
                 border-radius: 30px;
+                z-index: 1;
+
+                .bg-img{
+                    width:100%;
+                    position:absolute;
+                    top:-70%;
+                    left:-10%;
+                    z-index:0;
+                    opacity: 0.5;
+                  }
 
                 .txt-03 {
+                  position:relative;
                   font-size: 1.5em;
                 }
                 .txt-04 {
+                  position:relative;
                   font-size: 0.8em;
                   font-weight: 100;
                   text-align: center;
                 }
 
                 .signup-input {
+                  position:relative;
                   width: 50%;
                   position: relative;
 
@@ -165,6 +150,7 @@ export default function HomePage() {
             }
 
             .right {
+              z-index: 3;
               width: 35%;
               .img {
                 width: 100%;
@@ -206,24 +192,151 @@ export default function HomePage() {
               }
             }
           }
+        }
+        @media only screen and (max-width: 1180px) {
+          .pg-01 {
+            .contents {
+              width: 100%;
+              height: 100%;
 
-          @media only screen and (max-width: 1180px) {
-            .pg-01 {
-              .contents {
+              .left {
+                width: 75%;
+              }
+            }
+
+            .right {
+              width: 25%;
+            }
+          }
+        }
+        @media only screen and (max-width: 760px) {
+          .pg-01 {
+          width: 85vw;
+          height: 95vh;
+          padding: 0 7vw;
+
+          .contents {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position:relative;
+
+            .left {
+              z-index: 3;
+              width: 100%;
+              height: 100%;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items:center;
+              position:relative;
+              z-index:2;
+
+              .txt-01 {
+                text-align:center;
                 width: 100%;
-                height: 100%;
+                font-size: 2em;
+                position:relative;
+                z-index:2;
+              }
+              .txt-02{
+                position:relative;
+              z-index:2;
+              }
 
-                .left {
-                  width: 75%;
+              .signup-box {
+                width: 90%;
+                height: 180px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin: 50px 0;
+                padding: 30px 25px;
+                box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
+                position: relative;
+                border-radius: 30px;
+                z-index: 1;
+
+                .bg-img{
+                    width:100%;
+                    position:absolute;
+                    top:-70%;
+                    left:-10%;
+                    z-index:0;
+                    opacity: 0.5;
+                  }
+
+                .txt-03 {
+                  position:relative;
+                  font-size: 1.4em;
+                }
+                .txt-04 {
+                  position:relative;
+                  font-size: 0.8em;
+                  font-weight: 100;
+                  text-align: center;
+                }
+
+                .signup-input {
+                  position:relative;
+                  width: 80%;
+                  position: relative;
+
+                  .input {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 5% 10%;
+                    background: transparent;
+                    border-radius: 500px;
+                    color: white;
+                    box-sizing: border-box;
+                    border: none;
+                    background-color: rgba(255, 255, 255, 0.2);
+                  }
+
+                  .span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: black;
+                    text-align: center;
+                    font-size: 0.8em;
+                    width: 30%;
+                    height: 100%;
+                    background: white;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    border-radius: 0px 100px 100px 0;
+                    box-sizing: border-box;
+                    font-weight: 200;
+                    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
+                  }
                 }
               }
 
-              .right {
-                width: 25%;
+              .txt-05 {
+                width: 90%;
+                text-align: center;
+                margin-left: 6%;
+              }
+            }
+
+            .right {
+              display:none;
+              .img {
+                width: 100%;
               }
             }
           }
         }
+        }
+
       `}</style>
     </div>
   );
