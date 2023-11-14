@@ -1,16 +1,30 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Faq({ scroll }: any) {
   const qList = [
     {
       title: "What kind of personalization does Molluskular offer?",
-      description: "",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero et ipsum eos veniam reiciendis non natus repellat voluptatum soluta iure cupiditate, quod animi doloremque voluptatibus? Voluptas reprehenderit pariatur hic! Dicta?",
     },
     {
       title: "How does Molluskular understand my fitness needs in real-time?",
-      description: "",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero et ipsum eos veniam reiciendis non natus repellat voluptatum soluta iure cupiditate, quod animi doloremque voluptatibus? Voluptas reprehenderit pariatur hic! Dicta?",
     },
   ];
+
+  const [toggle, setToggle] = useState(0);
+  const onToggleClick = (i: number) => {
+    if ((~toggle & (1 << i)) == 0) {
+      setToggle(toggle & ~(1 << i));
+    } else {
+      setToggle(toggle | (1 << i));
+    }
+  };
+
   return (
     <div className="page pg-05" ref={scroll}>
       <img src="/background/bg_03.png" alt="bg" className="bg" />
@@ -20,9 +34,18 @@ export default function Faq({ scroll }: any) {
       </div>
       <div className="question-list">
         {qList.map((question, i) => (
-          <div key={i} className="question-item">
-            <span className="txt-02">{question.title}</span>
-            <img src="/down.png" className="down-img"></img>
+          <div key={i} className="question-items">
+            <div className="question-item">
+              <span className="txt-02">{question.title}</span>
+              <img
+                src="/down.png"
+                className="down-img"
+                onClick={() => onToggleClick(i)}
+              />
+            </div>
+            <span className={`txt-03 ${~toggle & (1 << i) ? "closed" : ""}`}>
+              {question.description}
+            </span>
           </div>
         ))}
       </div>
@@ -64,26 +87,51 @@ export default function Faq({ scroll }: any) {
             }
 
             .question-list {
-              width: 60%;
+              width: 80%;
+              max-width: 1000px;
               display: flex;
               flex-direction: column;
+              position: relative;
+              z-index: 2;
 
-              .question-item {
+              .question-items {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                padding: 15px 15px;
-                background-color: black;
-                margin-bottom: 5px;
-                border-radius: 10px;
+                flex-direction: column;
+                margin-bottom: 10px;
+                overflow: hidden;
 
-                .txt-02 {
-                  font-weight: 200;
+                .question-item {
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  width: 100%;
+                  padding: 15px 15px;
+                  background-color: black;
+                  border-radius: 10px 10px 0 0;
+                  box-sizing: border-box;
+
+                  .txt-02 {
+                    font-weight: 200;
+                  }
+
+                  .down-img {
+                    width: 20px;
+                    cursor: pointer;
+                  }
                 }
 
-                .down-img {
-                  width: 20px;
+                .txt-03 {
+                  width: 100%;
+                  height: 100px;
+                  padding: 10px 15px;
+                  background-color: black;
+                  transition-duration: 1s;
+                  box-sizing: border-box;
+                }
+
+                .closed {
+                  height: 0;
+                  padding: 0 15px;
                 }
               }
             }

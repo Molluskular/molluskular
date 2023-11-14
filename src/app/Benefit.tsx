@@ -39,6 +39,7 @@ export default function Benefit({ scroll }: any) {
       </div>
       <style jsx>{`
         .pg-03 {
+          height: calc(100vh - 200px);
           display: flex;
           flex-direction: column;
           justify-centent: center;
@@ -80,7 +81,8 @@ export default function Benefit({ scroll }: any) {
           }
 
           .benefit-box {
-            width: 70%;
+            width: 60%;
+            height: 90%;
             border-radius: 15px;
             display: flex;
             background-color: rgb(32, 32, 32, 0.2);
@@ -89,18 +91,16 @@ export default function Benefit({ scroll }: any) {
             z-index: 2;
 
             .benefit-img {
-              width: 400px;
+              width: 40%;
               height: auto;
               border-radius: 15px 0px 0px 15px;
-            }
-            .benefit-img {
-              width: 40%;
             }
 
             .benefit-cards {
               display: flex;
               flex-direction: column;
               justify-content: space-between;
+              height: 100%;
 
               .card {
                 flex: 1;

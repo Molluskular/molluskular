@@ -2,7 +2,7 @@
 
 export default function HomePage({ scroll }: any) {
   return (
-    <div className="page pg-01" ref={scroll}>
+    <div className="page pg-01">
       <div className="contents">
         <div className="left">
           <span className="txt-01 title">
@@ -201,6 +201,15 @@ export default function HomePage({ scroll }: any) {
 
               .left {
                 width: 75%;
+
+                .txt-01{
+                  font-size: 2.5em;
+                }
+
+                .txt-05 {
+                width: 70%;
+                margin-left: 0;
+              }
               }
             }
 

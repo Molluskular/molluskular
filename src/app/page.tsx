@@ -36,13 +36,14 @@ export default function Home() {
     <>
       <main className="main">
         <div className="background">
-          <header className="nav-bar">
+          <header className="nav-bar" ref={home}>
             <img src={"/logo.png"} alt="logo" className="logo"></img>
             <nav className="nav-content">
               {navContent.map((text, i) => (
                 <span
                   key={i}
                   onClick={(e: any) => onNavClick(e.target.innerText)}
+                  className="nav-item"
                 >
                   {text}
                 </span>
@@ -91,13 +92,14 @@ export default function Home() {
 
           .nav-bar {
             margin-top: 40px;
-            width: 100%;
-            height: fit-content;
+            width: 86vw;
+            height: 5vh;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
             color: white;
+            padding: 0 7vw;
 
             .logo {
               width: 100px;
@@ -107,6 +109,10 @@ export default function Home() {
               margin: 0 20%;
               display: flex;
               justify-content: space-evenly;
+
+              .nav-item {
+                cursor: pointer;
+              }
             }
           }
         }
@@ -167,11 +173,16 @@ export default function Home() {
                 width: 100px;
                 margin-bottom: 20px;
               }
-              .nav-content {
-                width: 100%;
-                margin: 0 20%;
-                display: flex;
-                justify-content: space-evenly;
+
+              .nav-bar {
+                width: 100vw;
+                padding: 0px 0px;
+                .nav-content {
+                  width: 100%;
+                  margin: 0 20%;
+                  display: flex;
+                  justify-content: space-evenly;
+                }
               }
             }
           }
