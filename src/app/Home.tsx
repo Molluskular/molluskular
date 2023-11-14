@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
-
 export default function HomePage() {
   const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
+
   return (
     <div className="page pg-01">
       <header className="nav-bar">

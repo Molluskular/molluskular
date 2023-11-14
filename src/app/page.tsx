@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Concept from "./Concept";
 import HomePage from "./Home";
 import Benefit from "./Benefit";
