@@ -36,7 +36,7 @@ export default function Faq({ scroll }: any) {
             background-color: #191919;
             padding: 100px 0;
             position: relative;
-            overflow-x: hidden;
+            overflow: hidden;
             .bg {
               position: absolute;
               width: 60%;
