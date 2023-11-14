@@ -1,6 +1,6 @@
 "use client";
 
-export default function Benefit() {
+export default function Benefit({ scroll }: any) {
   const benefitList = [
     {
       title: "Dynamic Plan Iterations",
@@ -19,7 +19,7 @@ export default function Benefit() {
     },
   ];
   return (
-    <div className="page pg-03">
+    <div className="page pg-03" ref={scroll}>
       <img src="/background/bg_06.png" alt="bg-01" className="bg-01" />
       <img src="/background/bg_07.png" alt="bg-02" className="bg-02" />
       <div className="txt-box">
@@ -118,6 +118,41 @@ export default function Benefit() {
 
               .card-even {
                 background-color: rgb(16, 16, 16, 0.8);
+              }
+            }
+          }
+        }
+
+        @media only screen and (max-width: 760px) {
+          .pg-03 {
+            .benefit-box {
+              width: 80%;
+              .benefit-img {
+                display: none;
+              }
+
+              .benefit-cards {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .card {
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  padding: 30px;
+                  justify-content: center;
+
+                  .txt-02 {
+                    font-size: 1.2em;
+                    font-weight: 200;
+                    margin-bottom: 20px;
+                  }
+                }
+
+                .card-even {
+                  background-color: rgb(16, 16, 16, 0.8);
+                }
               }
             }
           }

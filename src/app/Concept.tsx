@@ -1,6 +1,6 @@
 "use client";
 
-export default function Concept() {
+export default function Concept({ scroll }: any) {
   const conceptList = [
     {
       image: "/octopus.png",
@@ -22,7 +22,7 @@ export default function Concept() {
     },
   ];
   return (
-    <div className="page pg-02">
+    <div className="page pg-02" ref={scroll}>
       <div className="txt-box">
         <span className="txt">Our CONCEPT</span>
         <img src="/background/txt_bg.png" className="img"></img>
@@ -89,6 +89,35 @@ export default function Concept() {
 
                 .txt-02 {
                   width: 60%;
+                }
+              }
+            }
+          }
+
+          @media only screen and (max-width: 760px) {
+            .pg-02 {
+              .concepts {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .concept-item {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-between;
+                  align-items: center;
+                  justify-content: center;
+                  margin-bottom: 30px;
+
+                  .img {
+                    width: 80px;
+                    height: 80px;
+                    margin-bottom: 0px;
+                  }
+
+                  .txt-02 {
+                    width: 80%;
+                  }
                 }
               }
             }

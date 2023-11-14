@@ -1,6 +1,6 @@
 "use client";
 
-export default function Faq() {
+export default function Faq({ scroll }: any) {
   const qList = [
     {
       title: "What kind of personalization does Molluskular offer?",
@@ -12,7 +12,7 @@ export default function Faq() {
     },
   ];
   return (
-    <div className="page pg-05">
+    <div className="page pg-05" ref={scroll}>
       <img src="/background/bg_03.png" alt="bg" className="bg" />
       <div className="txt-box">
         <span className="txt-01">FAQ&apos;S</span>

@@ -5,17 +5,55 @@ import HomePage from "./Home";
 import Benefit from "./Benefit";
 import Join from "./Join";
 import Faq from "./Faq";
+import useMoveScroll from "../hook/useMoveScroll";
 
 export default function Home() {
+  const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
+  const [home, useHome]: any = useMoveScroll();
+  const [concept, useConcept]: any = useMoveScroll();
+  const [benefit, useBenefit]: any = useMoveScroll();
+  const [faq, useFaq]: any = useMoveScroll();
+
+  const onNavClick = (value: string) => {
+    switch (value) {
+      case "Home":
+        useHome();
+        break;
+      case "Our Concept":
+        useConcept();
+        break;
+      case "Benefit":
+        useBenefit();
+        break;
+      case "FAQ":
+        useFaq();
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <>
       <main className="main">
         <div className="background">
-          <HomePage></HomePage>
-          <Concept></Concept>
-          <Benefit></Benefit>
+          <header className="nav-bar">
+            <img src={"/logo.png"} alt="logo" className="logo"></img>
+            <nav className="nav-content">
+              {navContent.map((text, i) => (
+                <span
+                  key={i}
+                  onClick={(e: any) => onNavClick(e.target.innerText)}
+                >
+                  {text}
+                </span>
+              ))}
+            </nav>
+          </header>
+          <HomePage scroll={home}></HomePage>
+          <Concept scroll={concept}></Concept>
+          <Benefit scroll={benefit}></Benefit>
           <Join></Join>
-          <Faq></Faq>
+          <Faq scroll={faq}></Faq>
           <footer>
             <div className="logo-box">
               <img src="/logo.png" alt="logo" className="logo" />
@@ -50,6 +88,27 @@ export default function Home() {
             display: flex;
             flex-direction: column;
           }
+
+          .nav-bar {
+            margin-top: 40px;
+            width: 100%;
+            height: fit-content;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+
+            .logo {
+              width: 100px;
+            }
+            .nav-content {
+              width: 100%;
+              margin: 0 20%;
+              display: flex;
+              justify-content: space-evenly;
+            }
+          }
         }
 
         footer {
@@ -57,7 +116,7 @@ export default function Home() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 30px 0;
+          padding: 30px 7vw;
 
           .logo-box {
             display: flex;
@@ -93,6 +152,28 @@ export default function Home() {
         @media only screen and (max-width: 1250px) {
           .background {
             font-size: 12px;
+          }
+        }
+
+        @media only screen and (max-width: 760px) {
+          .background {
+            font-size: 12px;
+
+            .nav-bar {
+              display: flex;
+              flex-direction: column;
+
+              .logo {
+                width: 100px;
+                margin-bottom: 20px;
+              }
+              .nav-content {
+                width: 100%;
+                margin: 0 20%;
+                display: flex;
+                justify-content: space-evenly;
+              }
+            }
           }
         }
       `}</style>
