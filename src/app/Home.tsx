@@ -21,16 +21,17 @@ export default function HomePage() {
           </span>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
-            redefine your workout routine. <br />
-            Guaranteeing exceptional progress and success in your fitness
-            journey.
+            <br /> redefine your workout routine, guaranteeing exceptional
+            progress and
+            <br /> success in your fitness journey.
           </span>
           <div className="signup-box">
+            <img className="bg-img" src="/background/bg_04.png" />
             <span className="title txt-03">SIGN-UP FOR EARLY ACCESS</span>
             <span className="txt-04">
               Be among the first to experience our groundbreaking features.
               <br />
-              Your journey to a stronger, hearthier you starts here!
+              Your journey to a stronger, healthier you starts here!
             </span>
             <div className="signup-input">
               <input type="email" className="input"></input>
@@ -38,8 +39,8 @@ export default function HomePage() {
             </div>
           </div>
           <span className="txt-05">
-            By signing up, you agree to be on our email list for updates on
-            Molluskular&apos;s launch and features.
+            By signing up, you agree to be on our email list for <br />
+            updates on Molluskular&apos;s launch and features.
             <br />
             <u>Opt-out anytime.</u>
           </span>
@@ -53,6 +54,7 @@ export default function HomePage() {
           width: 85vw;
           height: 100vh;
           padding: 0 7vw;
+          z-index: -2;
 
           .nav-bar {
             margin-top: 40px;
@@ -81,8 +83,10 @@ export default function HomePage() {
             display: flex;
             justify-content: center;
             align-items: center;
+            position:relative;
 
             .left {
+              z-index: 3;
               width: 65%;
               height: 100%;
               display: flex;
@@ -108,17 +112,30 @@ export default function HomePage() {
                 box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
                 position: relative;
                 border-radius: 30px;
+                z-index: 1;
+
+                .bg-img{
+                    width:100%;
+                    position:absolute;
+                    top:-70%;
+                    left:-10%;
+                    z-index:0;
+                    opacity: 0.5;
+                  }
 
                 .txt-03 {
+                  position:relative;
                   font-size: 1.5em;
                 }
                 .txt-04 {
+                  position:relative;
                   font-size: 0.8em;
                   font-weight: 100;
                   text-align: center;
                 }
 
                 .signup-input {
+                  position:relative;
                   width: 50%;
                   position: relative;
 
@@ -165,6 +182,7 @@ export default function HomePage() {
             }
 
             .right {
+              z-index: 3;
               width: 35%;
               .img {
                 width: 100%;

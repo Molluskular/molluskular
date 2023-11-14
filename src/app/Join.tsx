@@ -26,6 +26,8 @@ export default function Join() {
           justify-content: center;
           align-items: center;
           padding: 100px 0;
+          position: relative;
+          z-index: 5;
           .txt-01 {
             font-weight: 300;
             font-size: 2em;
@@ -44,7 +46,7 @@ export default function Join() {
               height: 100%;
               display: flex;
               align-items: center;
-              padding: 5% 10%;
+              padding: 4% 10%;
               background: transparent;
               border-radius: 500px;
               color: white;

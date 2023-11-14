@@ -12,18 +12,21 @@ export default function Concept() {
       image: "/measuring.png",
       title: "Tailored Strength Training",
       description:
-        "Carve your fitness path with our system's smart onboarding, tailoring workout plans to your goalds, preferences, and lifestyle. Whether you're a fitness enthusiastic or a time-stopped gym-goer.",
+        "Carve your fitness path with our system’s smart onboarding, tailoring workout plans to your goals, preferences, and lifestyle, whether you’re a fitness enthusiast or a time-strapped gym-goer.",
     },
     {
       image: "/counter.png",
       title: "Making Every Rep Count",
       description:
-        "Molluskular rejects the one-size-fits-all fitness approach. We focus on personalized strength training. Offering a dynamic platform for individual needs.",
+        "Molluskular rejects the one-size-fits-all fitness approach. We focus on personalized strength training, offering a dynamic platform for individual needs.",
     },
   ];
   return (
     <div className="page pg-02">
-      <span className="txt">Our CONCEPT</span>
+      <div className="txt-box">
+        <span className="txt">Our CONCEPT</span>
+        <img src="/background/txt_bg.png" className="img"></img>
+      </div>
       <div className="concepts">
         {conceptList.map((concept, i) => (
           <div className="concept-item" key={i}>
@@ -45,10 +48,23 @@ export default function Concept() {
             justify-content: center;
             background-color: #191919;
 
-            .txt {
-              font-size: 2em;
-              font-weight: 300;
+            .txt-box {
               margin-bottom: 75px;
+              position: relative;
+
+              .txt {
+                position: relative;
+                font-size: 2em;
+                font-weight: 300;
+                z-index: 2;
+              }
+
+              .img {
+                width: 100%;
+                position: absolute;
+                top: -5px;
+                left: 0;
+              }
             }
 
             .concepts {

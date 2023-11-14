@@ -46,6 +46,7 @@ export default function Home() {
           height: 100vh;
           background-color: #0b0b0b;
           font-weight: 100;
+          z-index: -2;
           .page {
             display: flex;
             flex-direction: column;
