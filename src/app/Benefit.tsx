@@ -82,7 +82,6 @@ export default function Benefit({ scroll }: any) {
 
           .benefit-box {
             width: 60%;
-            height: 90%;
             border-radius: 15px;
             display: flex;
             background-color: rgb(32, 32, 32, 0.2);
@@ -92,6 +91,7 @@ export default function Benefit({ scroll }: any) {
 
             .benefit-img {
               width: 40%;
+              max-width: 400px;
               height: auto;
               border-radius: 15px 0px 0px 15px;
             }
@@ -123,6 +123,52 @@ export default function Benefit({ scroll }: any) {
           }
         }
 
+        @media only screen and (max-width: 1200px) {
+          .pg-03 {
+            .benefit-box {
+              width: 70%;
+              border-radius: 15px;
+              display: flex;
+              background-color: rgb(32, 32, 32, 0.2);
+              box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
+              position: relative;
+              z-index: 2;
+
+              .benefit-img {
+                width: 40%;
+                max-width: 400px;
+                height: auto;
+                border-radius: 15px 0px 0px 15px;
+              }
+
+              .benefit-cards {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+
+                .card {
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  padding: 30px;
+                  justify-content: center;
+
+                  .txt-02 {
+                    font-size: 1.2em;
+                    font-weight: 200;
+                    margin-bottom: 20px;
+                  }
+                }
+
+                .card-even {
+                  background-color: rgb(16, 16, 16, 0.8);
+                }
+              }
+            }
+          }
+        }
+
         @media only screen and (max-width: 760px) {
           .pg-03 {
             .benefit-box {
@@ -135,6 +181,53 @@ export default function Benefit({ scroll }: any) {
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;
+
+                .card {
+                  flex: 1;
+                  display: flex;
+                  flex-direction: column;
+                  padding: 30px;
+                  justify-content: center;
+
+                  .txt-02 {
+                    font-size: 1.2em;
+                    font-weight: 200;
+                    margin-bottom: 20px;
+                  }
+                }
+
+                .card-even {
+                  background-color: rgb(16, 16, 16, 0.8);
+                }
+              }
+            }
+          }
+        }
+
+        @media only screen and (max-height: 700px) {
+          .pg-03 {
+            height: fit-content;
+            .benefit-box {
+              width: 70%;
+              border-radius: 15px;
+              display: flex;
+              background-color: rgb(32, 32, 32, 0.2);
+              box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
+              position: relative;
+              z-index: 2;
+
+              .benefit-img {
+                width: 40%;
+                max-width: 400px;
+                height: auto;
+                border-radius: 15px 0px 0px 15px;
+              }
+
+              .benefit-cards {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
 
                 .card {
                   flex: 1;
