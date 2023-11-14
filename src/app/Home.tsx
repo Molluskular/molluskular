@@ -6,7 +6,7 @@ export default function HomePage({ scroll }: any) {
       <div className="contents">
         <div className="left">
           <span className="txt-01 title">
-            GET READY TO REDEFINE <br /> YOUR WORKOUT PROGRSS
+            GET READY TO REDEFINE <br /> YOUR WORKOUT PROGRESS
           </span>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
