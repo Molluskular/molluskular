@@ -22,7 +22,7 @@ export default function RootLayout({
       <head>
         <title>Molluskular</title>
         <Script id="GA-aysnc" async src="https://www.googletagmanager.com/gtag/js?id=G-8PX3W2B98E"></Script>
-        <Script id="GA-gtag" src="/gtag.js">
+        <Script id="GA-gtag" src="/scripts/gtag.js">
         </Script>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
