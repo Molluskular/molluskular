@@ -42,7 +42,7 @@ export default function Benefit({ scroll }: any) {
           min-height: calc(100vh - 200px);
           display: flex;
           flex-direction: column;
-          justify-centent: center;
+          justify-content: center;
           align-items: center;
           padding: 100px 0;
           background-color: #191919;

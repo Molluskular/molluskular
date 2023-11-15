@@ -35,11 +35,13 @@ export default function Join() {
           }
 
           .txt-02 {
+            width: 80%;
+            text-align: center;
             margin: 30px 0;
           }
 
           .signup-input {
-            width: 30%;
+            width: 50%;
             position: relative;
             cursor: pointer;
 

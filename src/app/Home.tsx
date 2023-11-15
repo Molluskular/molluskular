@@ -109,7 +109,7 @@ export default function HomePage({ scroll }: any) {
                 }
 
                 .signup-input {
-                  width: 50%;
+                  width: 60%;
                   position: relative;
                   cursor: pointer;
 
