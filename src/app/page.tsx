@@ -36,7 +36,7 @@ export default function Home() {
     <>
       <main className="main">
         <div className="background">
-          <header className="nav-bar" ref={home}>
+          <header className="nav-bar">
             <img src={"/logo.png"} alt="logo" className="logo"></img>
             <nav className="nav-content">
               {navContent.map((text, i) => (
@@ -93,7 +93,6 @@ export default function Home() {
           .nav-bar {
             margin-top: 40px;
             width: 86vw;
-            height: 5vh;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -168,6 +167,7 @@ export default function Home() {
             .nav-bar {
               display: flex;
               flex-direction: column;
+              margin-bottom: 30px;
 
               .logo {
                 width: 100px;
