@@ -21,9 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Molluskular</title>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8PX3W2B98E"></script>
-        <script src="/gtag.js">
-        </script>
+        <Script id="GA-aysnc" async src="https://www.googletagmanager.com/gtag/js?id=G-8PX3W2B98E"></Script>
+        <Script id="GA-gtag" src="/gtag.js">
+        </Script>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
       <body className={inter.className}>{children}</body>
