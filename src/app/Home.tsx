@@ -2,7 +2,7 @@
 
 export default function HomePage({ scroll }: any) {
   return (
-    <div className="page pg-01">
+    <div className="page pg-01" ref={scroll}>
       <div className="contents">
         <div className="left">
           <span className="txt-01 title">
@@ -10,9 +10,8 @@ export default function HomePage({ scroll }: any) {
           </span>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
-            <br /> redefine your workout routine, guaranteeing exceptional
-            progress and
-            <br /> success in your fitness journey.
+            redefine your workout routine, guaranteeing exceptional progress and
+            success in your fitness journey.
           </span>
           <div className="signup-box">
             <img className="bg-img" src="/background/bg_04.png" />
@@ -40,8 +39,11 @@ export default function HomePage({ scroll }: any) {
       </div>
       <style jsx>{`
         .pg-01 {
+          display:flex;
+          justify-content: center;
+          align-items:center;
           width: 85vw;
-          height: 95vh;
+          min-height: 100vh;
           padding: 0 7vw;
           z-index: -2;
 
@@ -66,6 +68,10 @@ export default function HomePage({ scroll }: any) {
                 font-size: 3em;
                 margin-bottom: 10px;
                 line-height: 1.5em;
+              }
+
+              .txt-02 {
+                width: 60%;
               }
 
               .signup-box {
@@ -103,9 +109,9 @@ export default function HomePage({ scroll }: any) {
                 }
 
                 .signup-input {
-                  position:relative;
                   width: 50%;
                   position: relative;
+                  cursor: pointer;
 
                   .input {
                     width: 100%;
@@ -138,6 +144,12 @@ export default function HomePage({ scroll }: any) {
                     box-sizing: border-box;
                     font-weight: 200;
                     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
+                    transition-duration: 1s;
+                  }
+
+                  .span:hover {
+                    color: white;
+                    background-color: black;
                   }
                 }
               }
@@ -221,7 +233,7 @@ export default function HomePage({ scroll }: any) {
         @media only screen and (max-width: 760px) {
           .pg-01 {
           width: 85vw;
-          height: 95vh;
+          min-height: 95vh;
           padding: 0 7vw;
 
           .contents {
@@ -345,7 +357,6 @@ export default function HomePage({ scroll }: any) {
           }
         }
         }
-
       `}</style>
     </div>
   );
