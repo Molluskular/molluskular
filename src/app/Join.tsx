@@ -35,6 +35,7 @@ export default function Join() {
           }
 
           .txt-02 {
+            width: 80%;
             text-align: center;
             margin: 30px 0;
           }
