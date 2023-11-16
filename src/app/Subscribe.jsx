@@ -20,6 +20,15 @@ export async function AsyncNewsLetterSignupForm() {
 
       method: "POST",
     });
+
+    if (res.ok) {
+      var messageBoxes = document.querySelectorAll('[id^=output]');
+      for(var i in messageBoxes){
+        try{
+          messageBoxes[i].innerHTML = "Thanks for signing up!";
+        } catch(error){}
+      }
+    }
   };
   return (
     <form onSubmit={subscribeUser} className="signup-input">
@@ -125,6 +134,7 @@ export async function AsyncNewsLetterSignupForm() {
           }
         `}
       </style>
+      <p id="output"></p>
     </form>
   );
 }
