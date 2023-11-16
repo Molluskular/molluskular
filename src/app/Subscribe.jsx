@@ -1,44 +1,47 @@
-"use client";
+import { useRef } from 'react';
 
-import NewsLetterSignUpForm from './Subscribe';
+export default function NewsLetterSignUpForm() {
+  return (AsyncNewsLetterSignupForm());
+}
 
-export default function HomePage({ scroll }: any) {
+export async function AsyncNewsLetterSignupForm() {
+  const inputRef = useRef(null);
+  const subscribeUser = async (e) => {
+    e.preventDefault();
+
+    const res = await fetch('/api/subscribeUser', {
+      body: JSON.stringify({
+        email: inputRef.current.value,
+      }),
+
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      method: 'POST',
+    });
+  };
   return (
-    <div className="page pg-01">
-      <div className="contents">
-        <div className="left">
-          <span className="txt-01 title">
-            GET READY TO REDEFINE <br /> YOUR WORKOUT PROGRESS
-          </span>
-          <span className="txt-02">
-            Tailored to your unique needs, our personalized AI-driven app will
-            <br /> redefine your workout routine, guaranteeing exceptional
-            progress and
-            <br /> success in your fitness journey.
-          </span>
-          <div className="signup-box">
-            <img className="bg-img" src="/background/bg_04.png" />
-            <span className="title txt-03">SIGN-UP FOR EARLY ACCESS</span>
-            <span className="txt-04">
-              Be among the first to experience our groundbreaking features.
-              <br />
-              Your journey to a stronger, healthier you starts here!
-            </span>
-            <div className="signup-input">
-              <NewsLetterSignUpForm></NewsLetterSignUpForm>
-            </div>
-          </div>
-          <span className="txt-05">
-            By signing up, you agree to be on our email list for <br />
-            updates on Molluskular&apos;s launch and features.
-            <br />
-            <u>Opt-out anytime.</u>
-          </span>
-        </div>
-        <div className="right">
-          <img className="img" src="/lifting_man.png" alt="lifting man"></img>
-        </div>
-      </div>
+    <form onSubmit={subscribeUser} className="signup-input">
+      <label htmlFor="email-input" className="form__label">
+      
+      </label>
+
+      <input className="input"
+        type="email"
+        id="email-input"
+        name="email"
+        placeholder="your best email"
+        ref={inputRef}
+        required
+        autoCapitalize="off"
+        autoCorrect="off"
+      />
+
+      <button type="submit" className="span" value="" name="subscribe">
+        Subscribe
+      </button>
+
       <style jsx>{`
         .pg-01 {
           width: 85vw;
@@ -348,6 +351,7 @@ export default function HomePage({ scroll }: any) {
         }
 
       `}</style>
-    </div>
+    </form>
+    
   );
 }

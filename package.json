@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "isomorphic-unfetch": "^4.0.2",
     "next": "14.0.1",
     "nextjs-google-analytics": "^2.3.3",
     "node": "^21.1.0",
