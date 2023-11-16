@@ -136,6 +136,12 @@ body::-webkit-scrollbar {
 input {
   outline: none;
 }
+
+button {
+  outline: none;
+  border: none;
+}
+
 span {
   line-height: 1.2rem;
   font-family: Trap;

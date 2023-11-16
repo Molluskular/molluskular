@@ -1,5 +1,7 @@
 "use client";
 
+import NewsLetterSignUpForm from "./Subscribe";
+
 export default function Join() {
   return (
     <div className="page pg-04">
@@ -8,10 +10,7 @@ export default function Join() {
         Reserve your spot and be among the first to experience the future of
         workout personalization with Molluskular.
       </span>
-      <div className="signup-input">
-        <input className="input"></input>
-        <span className="span">Sign-Up</span>
-      </div>
+      <NewsLetterSignUpForm />
       <span className="txt-03">
         By signing up, you agree to be on our email list for <br />
         updates on Molluskular&apos;s launch and features.
