@@ -1,6 +1,6 @@
 "use client";
 
-import NewsLetterSignUpForm from './Subscribe';
+import NewsLetterSignUpForm from "./Subscribe";
 
 export default function HomePage({ scroll }: any) {
   return (
@@ -23,9 +23,7 @@ export default function HomePage({ scroll }: any) {
               <br />
               Your journey to a stronger, healthier you starts here!
             </span>
-            <div className="signup-input">
-              <NewsLetterSignUpForm></NewsLetterSignUpForm>
-            </div>
+            <NewsLetterSignUpForm></NewsLetterSignUpForm>
           </div>
           <span className="txt-05">
             By signing up, you agree to be on our email list for <br />
@@ -107,51 +105,6 @@ export default function HomePage({ scroll }: any) {
                   font-size: 0.8em;
                   font-weight: 100;
                   text-align: center;
-                }
-
-                .signup-input {
-                  width: 60%;
-                  position: relative;
-                  cursor: pointer;
-
-                  .input {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    padding: 5% 10%;
-                    background: transparent;
-                    border-radius: 500px;
-                    color: white;
-                    box-sizing: border-box;
-                    border: none;
-                    background-color: rgba(255, 255, 255, 0.2);
-                  }
-
-                  .span {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: black;
-                    text-align: center;
-                    font-size: 0.8em;
-                    width: 30%;
-                    height: 100%;
-                    background: white;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    border-radius: 0px 100px 100px 0;
-                    box-sizing: border-box;
-                    font-weight: 200;
-                    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
-                    transition-duration: 1s;
-                  }
-
-                  .span:hover {
-                    color: white;
-                    background-color: black;
-                  }
                 }
               }
 
@@ -306,39 +259,6 @@ export default function HomePage({ scroll }: any) {
                   position:relative;
                   width: 80%;
                   position: relative;
-
-                  .input {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    padding: 5% 10%;
-                    background: transparent;
-                    border-radius: 500px;
-                    color: white;
-                    box-sizing: border-box;
-                    border: none;
-                    background-color: rgba(255, 255, 255, 0.2);
-                  }
-
-                  .span {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: black;
-                    text-align: center;
-                    font-size: 0.8em;
-                    width: 30%;
-                    height: 100%;
-                    background: white;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    border-radius: 0px 100px 100px 0;
-                    box-sizing: border-box;
-                    font-weight: 200;
-                    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
-                  }
                 }
               }
 

@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 export default function NewsLetterSignUpForm() {
-  return (AsyncNewsLetterSignupForm());
+  return AsyncNewsLetterSignupForm();
 }
 
 export async function AsyncNewsLetterSignupForm() {
@@ -9,25 +9,24 @@ export async function AsyncNewsLetterSignupForm() {
   const subscribeUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('/api/subscribeUser', {
+    const res = await fetch("/api/subscribeUser", {
       body: JSON.stringify({
         email: inputRef.current.value,
       }),
 
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
 
-      method: 'POST',
+      method: "POST",
     });
   };
   return (
     <form onSubmit={subscribeUser} className="signup-input">
-      <label htmlFor="email-input" className="form__label">
-      
-      </label>
+      <label htmlFor="email-input" className="form__label"></label>
 
-      <input className="input"
+      <input
+        className="input"
         type="email"
         id="email-input"
         name="email"
@@ -42,316 +41,90 @@ export async function AsyncNewsLetterSignupForm() {
         Subscribe
       </button>
 
-      <style jsx>{`
-        .pg-01 {
-          width: 85vw;
-          height: 95vh;
-          padding: 0 7vw;
-          z-index: -2;
+      <style jsx>
+        {`
+          .signup-input {
+            width: 60%;
+            max-width: 500px;
+            position: relative;
+            cursor: pointer;
+            font-weight: 200;
 
-          .contents {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position:relative;
-
-            .left {
-              z-index: 3;
-              width: 65%;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-
-              .txt-01 {
-                width: 100%;
-                font-size: 3em;
-                margin-bottom: 10px;
-                line-height: 1.5em;
-              }
-
-              .signup-box {
-                width: 60%;
-                height: 180px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                margin: 50px 0;
-                padding: 30px 25px;
-                box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
-                position: relative;
-                border-radius: 30px;
-                z-index: 1;
-
-                .bg-img{
-                    width:100%;
-                    position:absolute;
-                    top:-70%;
-                    left:-10%;
-                    z-index:0;
-                    opacity: 0.5;
-                  }
-
-                .txt-03 {
-                  position:relative;
-                  font-size: 1.5em;
-                }
-                .txt-04 {
-                  position:relative;
-                  font-size: 0.8em;
-                  font-weight: 100;
-                  text-align: center;
-                }
-
-                .signup-input {
-                  position:relative;
-                  width: 50%;
-                  position: relative;
-
-                  .input {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    padding: 5% 10%;
-                    background: transparent;
-                    border-radius: 500px;
-                    color: white;
-                    box-sizing: border-box;
-                    border: none;
-                    background-color: rgba(255, 255, 255, 0.2);
-                  }
-
-                  .span {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: black;
-                    text-align: center;
-                    font-size: 0.8em;
-                    width: 30%;
-                    height: 100%;
-                    background: white;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    border-radius: 0px 100px 100px 0;
-                    box-sizing: border-box;
-                    font-weight: 200;
-                    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
-                  }
-                }
-              }
-
-              .txt-05 {
-                width: 50%;
-                text-align: center;
-                margin-left: 6%;
-              }
-            }
-
-            .right {
-              z-index: 3;
-              width: 35%;
-              .img {
-                width: 100%;
-              }
-            }
-          }
-        }
-
-        @media only screen and (max-width: 1350px) {
-            .pg-01 {
-              .contents {
-                width: 100%;
-                height: 100%;
-
-                .left {
-                  width: 70%;
-                }
-
-                .right {
-                  width: 30%;
-                }
-              }
-            }
-          }
-        }
-
-        @media only screen and (max-width: 1250px) {
-          .pg-01 {
-            .contents {
-              width: 100%;
-              height: 100%;
-
-              .left {
-                width: 75%;
-              }
-
-              .right {
-                width: 25%;
-              }
-            }
-          }
-        }
-        @media only screen and (max-width: 1180px) {
-          .pg-01 {
-            .contents {
-              width: 100%;
-              height: 100%;
-
-              .left {
-                width: 75%;
-
-                .txt-01{
-                  font-size: 2.5em;
-                }
-
-                .txt-05 {
-                width: 70%;
-                margin-left: 0;
-              }
-              }
-            }
-
-            .right {
-              width: 25%;
-            }
-          }
-        }
-        @media only screen and (max-width: 760px) {
-          .pg-01 {
-          width: 85vw;
-          height: 95vh;
-          padding: 0 7vw;
-
-          .contents {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position:relative;
-
-            .left {
-              z-index: 3;
+            .input {
               width: 100%;
               height: 100%;
               display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items:center;
-              position:relative;
-              z-index:2;
-
-              .txt-01 {
-                text-align:center;
-                width: 100%;
-                font-size: 2em;
-                position:relative;
-                z-index:2;
-              }
-              .txt-02{
-                position:relative;
-              z-index:2;
-              }
-
-              .signup-box {
-                width: 90%;
-                height: 180px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
-                margin: 50px 0;
-                padding: 30px 25px;
-                box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.2);
-                position: relative;
-                border-radius: 30px;
-                z-index: 1;
-
-                .bg-img{
-                    width:100%;
-                    position:absolute;
-                    top:-70%;
-                    left:-10%;
-                    z-index:0;
-                    opacity: 0.5;
-                  }
-
-                .txt-03 {
-                  position:relative;
-                  font-size: 1.4em;
-                }
-                .txt-04 {
-                  position:relative;
-                  font-size: 0.8em;
-                  font-weight: 100;
-                  text-align: center;
-                }
-
-                .signup-input {
-                  position:relative;
-                  width: 80%;
-                  position: relative;
-
-                  .input {
-                    width: 100%;
-                    height: 100%;
-                    display: flex;
-                    align-items: center;
-                    padding: 5% 10%;
-                    background: transparent;
-                    border-radius: 500px;
-                    color: white;
-                    box-sizing: border-box;
-                    border: none;
-                    background-color: rgba(255, 255, 255, 0.2);
-                  }
-
-                  .span {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    color: black;
-                    text-align: center;
-                    font-size: 0.8em;
-                    width: 30%;
-                    height: 100%;
-                    background: white;
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    border-radius: 0px 100px 100px 0;
-                    box-sizing: border-box;
-                    font-weight: 200;
-                    box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
-                  }
-                }
-              }
-
-              .txt-05 {
-                width: 90%;
-                text-align: center;
-                margin-left: 6%;
-              }
+              align-items: center;
+              padding: 15px 20px;
+              background: transparent;
+              border-radius: 500px;
+              color: white;
+              box-sizing: border-box;
+              border: none;
+              background-color: rgba(255, 255, 255, 0.2);
             }
 
-            .right {
-              display:none;
-              .img {
-                width: 100%;
-              }
+            .span {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: black;
+              text-align: center;
+              width: 30%;
+              height: 100%;
+              background: white;
+              position: absolute;
+              top: 0;
+              right: 0;
+              border-radius: 0px 100px 100px 0;
+              box-sizing: border-box;
+              font-weight: 200;
+              box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
+              transition-duration: 1s;
+              cursor: pointer;
+            }
+            .span:hover {
+              color: white;
+              background-color: black;
             }
           }
-        }
-        }
 
-      `}</style>
+          @media only screen and (max-width: 1300px) {
+            .signup-input {
+              width: 80%;
+            }
+          }
+
+          @media only screen and (max-width: 760px) {
+            .input {
+              background: transparent;
+              border-radius: 500px;
+              color: white;
+              box-sizing: border-box;
+              border: none;
+              background-color: rgba(255, 255, 255, 0.2);
+            }
+
+            .span {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: black;
+              text-align: center;
+              width: 30%;
+              height: 100%;
+              background: white;
+              position: absolute;
+              top: 0;
+              right: 0;
+              border-radius: 0px 100px 100px 0;
+              box-sizing: border-box;
+              box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
+              font-weight: 200;
+            }
+          }
+        `}
+      </style>
     </form>
-    
   );
 }
