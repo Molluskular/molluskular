@@ -35,12 +35,15 @@ export default function Join() {
           }
 
           .txt-02 {
+            width: 80%;
+            text-align: center;
             margin: 30px 0;
           }
 
           .signup-input {
-            width: 30%;
+            width: 50%;
             position: relative;
+            cursor: pointer;
 
             .input {
               width: 100%;
@@ -73,6 +76,12 @@ export default function Join() {
               box-sizing: border-box;
               font-weight: 200;
               box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.4);
+              transition-duration: 1s;
+            }
+
+            .span:hover {
+              color: white;
+              background-color: black;
             }
           }
 
