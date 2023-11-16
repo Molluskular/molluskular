@@ -39,7 +39,7 @@ export async function AsyncNewsLetterSignupForm() {
         type="email"
         id="email-input"
         name="email"
-        placeholder="your best email"
+        placeholder="johnsmit@gmail.com"
         ref={inputRef}
         required
         autoCapitalize="off"
