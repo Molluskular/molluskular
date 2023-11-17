@@ -47,11 +47,15 @@ export async function AsyncNewsLetterSignupForm() {
       />
 
       <button type="submit" className="span" value="" name="subscribe">
-        Subscribe
+        Sign-Up
       </button>
 
       <style jsx>
         {`
+          ::placeholder {
+            color:white;
+          }
+          
           .signup-input {
             width: 60%;
             max-width: 500px;
@@ -97,7 +101,7 @@ export async function AsyncNewsLetterSignupForm() {
               background-color: black;
             }
           }
-
+          
           @media only screen and (max-width: 1300px) {
             .signup-input {
               width: 80%;
