@@ -6,7 +6,7 @@ export default function NewsLetterSignUpForm() {
 
 export async function AsyncNewsLetterSignupForm() {
   const inputRef = useRef(null);
-  const vercelurl = process.env.NEXT_PUBLIC_VERCEL_URL;
+  const vercelurl = process.env.PUBLIC_URL;
   const subscribeUser = async (e) => {
     e.preventDefault();
 
