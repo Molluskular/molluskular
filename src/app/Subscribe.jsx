@@ -6,10 +6,11 @@ export default function NewsLetterSignUpForm() {
 
 export async function AsyncNewsLetterSignupForm() {
   const inputRef = useRef(null);
+  const vercelurl = process.env.VERCEL_URL;
   const subscribeUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('https://${process.env.VERCEL_URL}/api/subscribeUser', {
+    const res = await fetch(`https://${vercelurl}/api/subscribeUser`, {
       body: JSON.stringify({
         email: inputRef.current.value,
       }),
