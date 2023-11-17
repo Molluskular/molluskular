@@ -30,9 +30,7 @@ export default function RootLayout({
         <Script id="GA-gtag" src="/scripts/gtagnew.js"></Script>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
-      <ChakraProvider>
-        <body className={inter.className}>{children}</body>
-      </ChakraProvider>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
