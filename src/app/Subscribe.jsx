@@ -9,7 +9,7 @@ export async function AsyncNewsLetterSignupForm() {
   const subscribeUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/api/subscribeUser", {
+    const res = await fetch('https://${process.env.VERCEL_URL}/api/subscribeUser', {
       body: JSON.stringify({
         email: inputRef.current.value,
       }),

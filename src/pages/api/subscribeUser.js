@@ -3,7 +3,6 @@ import fetch from 'isomorphic-unfetch';
 
 export default async (req, res) => {
   const { email } = req.body;
-  console.log("here");
   console.log({ email });
 
   if (!email) {
