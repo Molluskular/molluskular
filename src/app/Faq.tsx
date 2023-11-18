@@ -29,7 +29,7 @@ export default function Faq({ scroll }: any) {
     <div className="page pg-05" ref={scroll}>
       <img src="/background/bg_03.png" alt="bg" className="bg" />
       <div className="txt-box">
-        <span className="txt-01">FAQ&apos;S</span>
+        <span className="title txt-01">FAQ&apos;S</span>
         <img src="/background/txt_bg.png" alt="txt_bg" className="img" />
       </div>
       <div className="question-list">

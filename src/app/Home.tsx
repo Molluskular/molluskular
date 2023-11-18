@@ -8,7 +8,7 @@ export default function HomePage({ scroll }: any) {
       <div className="contents">
         <div className="left">
           <span className="txt-01 title">
-            GET READY TO REDEFINE <br /> YOUR WORKOUT PROGRESS
+            GET READY TO REDEFINE <br /> YOUR WORKOUT ROUTINE
           </span>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
@@ -17,7 +17,7 @@ export default function HomePage({ scroll }: any) {
           </span>
           <div className="signup-box">
             <img className="bg-img" src="/background/bg_04.png" />
-            <span className="title txt-03">SIGN-UP FOR EARLY ACCESS</span>
+            <span className="title txt-03">SIGN UP FOR EARLY ACCESS</span>
             <span className="txt-04">
               Be among the first to experience our groundbreaking features.
               <br />

@@ -24,7 +24,7 @@ export default function Concept({ scroll }: any) {
   return (
     <div className="page pg-02" ref={scroll}>
       <div className="txt-box">
-        <span className="txt">Our CONCEPT</span>
+        <span className="title txt">Our CONCEPT</span>
         <img src="/background/txt_bg.png" className="img"></img>
       </div>
       <div className="concepts">

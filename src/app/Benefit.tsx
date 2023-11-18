@@ -23,7 +23,7 @@ export default function Benefit({ scroll }: any) {
       <img src="/background/bg_06.png" alt="bg-01" className="bg-01" />
       <img src="/background/bg_07.png" alt="bg-02" className="bg-02" />
       <div className="txt-box">
-        <span className="txt-01">Benefits</span>
+        <span className="title txt-01">Benefits</span>
         <img src="/background/txt_bg.png" className="img" />
       </div>
       <div className="benefit-box">
