@@ -6,11 +6,19 @@ export default function NewsLetterSignUpForm() {
 
 export async function AsyncNewsLetterSignupForm() {
   const inputRef = useRef(null);
-  const vercelurl = process.env.VERCEL_URL;
+
+  //Defining the environment variables to be used in the fetch() method
+  //These are defined as well in Vercel, and are different in development etc.
+  //Please use domain 'localhost', port '3000' and protocol 'http' for development
+  //Please use domain 'molluskular.com', port '443' and protocol 'https' for production
+  const url = process.env.NEXT_PUBLIC_ROOT_DOMAIN;
+  const port = process.env.NEXT_PUBLIC_ROOT_PORT;
+  const protocol = process.env.NEXT_PUBLIC_ROOT_PROTOCOL;
+  console.log(url + port);
   const subscribeUser = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(`https://molluskular.com/api/subscribeUser`, {
+    const res = await fetch(`${protocol}://${url}:${port}/api/subscribeUser`, {
       body: JSON.stringify({
         email: inputRef.current.value,
       }),
