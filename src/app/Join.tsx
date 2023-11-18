@@ -5,7 +5,7 @@ import NewsLetterSignUpForm from "./Subscribe";
 export default function Join() {
   return (
     <div className="page pg-04">
-      <span className="txt-01">JOIN THE REVOLUTION</span>
+      <span className="title txt-01">JOIN THE REVOLUTION</span>
       <span className="txt-02">
         Reserve your spot and be among the first to experience the future of
         workout personalization with Molluskular.
