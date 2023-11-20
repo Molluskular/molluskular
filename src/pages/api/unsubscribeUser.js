@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-unfetch';
 
-
+//Based on subscribeUser.js
 export default async (req, res) => {
   const { email } = req.body;
   console.log({ email });
