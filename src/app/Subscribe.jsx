@@ -4,7 +4,7 @@ export default function NewsLetterSignUpForm() {
   return AsyncNewsLetterSignupForm();
 }
 
-export async function AsyncNewsLetterSignupForm() {
+export function AsyncNewsLetterSignupForm() {
   const inputRef = useRef(null);
 
   //Defining the environment variables to be used in the fetch() method
@@ -31,11 +31,12 @@ export async function AsyncNewsLetterSignupForm() {
     });
 
     if (res.ok) {
-      var messageBoxes = document.querySelectorAll('[id^=output]');
-      for(var i in messageBoxes){
-        try{
+      var messageBoxes = document.querySelectorAll("[id^=output]");
+      alert("Thanks for signing up!");
+      for (var i in messageBoxes) {
+        try {
           messageBoxes[i].innerHTML = "Thanks for signing up!";
-        } catch(error){}
+        } catch (error) {}
       }
     }
   };
@@ -62,9 +63,9 @@ export async function AsyncNewsLetterSignupForm() {
       <style jsx>
         {`
           ::placeholder {
-            color:white;
+            color: white;
           }
-          
+
           .signup-input {
             width: 60%;
             max-width: 500px;
@@ -110,7 +111,7 @@ export async function AsyncNewsLetterSignupForm() {
               background-color: black;
             }
           }
-          
+
           @media only screen and (max-width: 1300px) {
             .signup-input {
               width: 80%;

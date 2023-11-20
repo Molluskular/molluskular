@@ -6,6 +6,8 @@ import Benefit from "./Benefit";
 import Join from "./Join";
 import Faq from "./Faq";
 import useMoveScroll from "../hook/useMoveScroll";
+import { useEffect, useState } from "react";
+import useScrollY from "@/hook/useScrollY";
 
 export default function Home() {
   const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
@@ -13,6 +15,34 @@ export default function Home() {
   const [concept, UseConcept]: any = useMoveScroll();
   const [benefit, UseBenefit]: any = useMoveScroll();
   const [faq, UseFaq]: any = useMoveScroll();
+  const [scrollY, setScrollY] = useScrollY();
+  const [arrowName, setArrowName] = useState("arrow-img");
+
+  useEffect(() => {
+    const faqHeight = faq.current.offsetTop + faq.current.offsetHeight;
+    const conceptHeight =
+      concept.current.offsetTop + concept.current.offsetHeight;
+    const screenBottom =
+      parseInt(scrollY.toString()) + parseInt(window.screen.height.toString());
+    if (conceptHeight >= screenBottom) {
+      setArrowName("arrow-img");
+    }
+    if (conceptHeight < screenBottom) {
+      setArrowName("arrow-img arrow-inverse");
+    }
+    // if (faqHeight < screenBottom) {
+    //   setArrowName("arrow-img arrow-disappear");
+    // }
+  }, [scrollY]);
+
+  const onArrowClick = () => {
+    if (arrowName.includes("arrow-inverse")) {
+      console.log(1);
+      home.current?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      faq.current?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const onNavClick = (value: string) => {
     switch (value) {
@@ -35,9 +65,21 @@ export default function Home() {
   return (
     <>
       <main className="main">
+        <img
+          src="/arrow.png"
+          className={arrowName}
+          onClick={onArrowClick}
+        ></img>
         <div className="background">
           <header className="nav-bar">
-            <img src={"/logo.png"} alt="logo" className="logo"></img>
+            <div className="nav-logo-box">
+              <img src={"/logo.png"} alt="logo" className="nav-logo"></img>
+              <img
+                src={"/logo-txt.png"}
+                alt="logo"
+                className="nav-logo-txt"
+              ></img>
+            </div>
             <nav className="nav-content">
               {navContent.map((text, i) => (
                 <span
@@ -58,7 +100,7 @@ export default function Home() {
           <footer>
             <div className="logo-box">
               <img src="/logo.png" alt="logo" className="logo" />
-              <span className="logo-txt">Molluskular</span>
+              <img src="/logo-half-txt.png" alt="logo" className="logo-txt" />
             </div>
             <span>
               Follow our journey towards personalizing your fitness with
@@ -77,6 +119,24 @@ export default function Home() {
           width: 100vw;
           height: 100vh;
           color: white;
+          position: relative;
+        }
+
+        .arrow-img {
+          width: 31px;
+          position: fixed;
+          z-index: 4;
+          bottom: 20px;
+          left: calc(50% - 15px);
+          transition-duration: 0.5s;
+          cursor: pointer;
+        }
+
+        .arrow-inverse {
+          transform: rotate(0.5turn);
+        }
+        .arrow-disappear {
+          display: none;
         }
 
         .background {
@@ -100,8 +160,20 @@ export default function Home() {
             color: white;
             padding: 0 7vw;
 
-            .logo {
-              width: 100px;
+            .nav-logo-box {
+              width: 30%;
+              min-width: 150px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              .nav-logo {
+                width: 40%;
+              }
+
+              .nav-logo-txt {
+                width: 60%;
+              }
             }
             .nav-content {
               width: 100%;
@@ -121,21 +193,22 @@ export default function Home() {
           flex-direction: column;
           align-items: center;
           justify-content: center;
-          padding: 30px 7vw;
+          padding: 50px 7vw;
 
           .logo-box {
+            width: 50%;
+            max-width: 500px;
             display: flex;
             align-items: center;
             margin-bottom: 20px;
 
             .logo {
-              width: 100px;
-              margin-right: 20px;
+              width: 20%;
+              margin-right: 3%;
             }
 
             .logo-txt {
-              font-size: 2em;
-              font-weight: 300;
+              width: 80%;
             }
           }
 
@@ -157,6 +230,12 @@ export default function Home() {
         @media only screen and (max-width: 1250px) {
           .background {
             font-size: 12px;
+
+            .nav-bar {
+              .nav-content {
+                margin: 0 10%;
+              }
+            }
           }
         }
 
@@ -169,8 +248,7 @@ export default function Home() {
               flex-direction: column;
               margin-bottom: 30px;
 
-              .logo {
-                width: 100px;
+              .nav-logo-box {
                 margin-bottom: 20px;
               }
 
