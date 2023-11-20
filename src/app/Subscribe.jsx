@@ -1,10 +1,6 @@
 import { useRef } from "react";
 
-export default function NewsLetterSignUpForm() {
-  return AsyncNewsLetterSignupForm();
-}
-
-export function AsyncNewsLetterSignupForm() {
+export default function NewsLetterSignupForm() {
   const inputRef = useRef(null);
 
   //Defining the environment variables to be used in the fetch() method
