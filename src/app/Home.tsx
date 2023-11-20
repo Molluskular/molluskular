@@ -34,6 +34,11 @@ export default function HomePage({ scroll }: any) {
           </span>
         </div>
         <div className="right">
+          <img
+            className="img-02"
+            src="/background/bg_08.png"
+            alt="lifting man"
+          ></img>
           <img className="img" src="/lifting_man.png" alt="lifting man"></img>
         </div>
       </div>
@@ -129,10 +134,17 @@ export default function HomePage({ scroll }: any) {
             }
 
             .right {
+              position:relative;
               z-index: 3;
               width: 35%;
+              align-self: start;
               .img {
                 width: 100%;
+              }
+              .img-02{
+                position:absolute;
+                top: 0;
+                left: 0;
               }
             }
           }
@@ -225,7 +237,7 @@ export default function HomePage({ scroll }: any) {
               .txt-01 {
                 text-align:center;
                 width: 100%;
-                font-size: 2em;
+                font-size: 2em !important;
                 position:relative;
                 z-index:2;
               }
