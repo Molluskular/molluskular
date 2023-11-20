@@ -4,7 +4,7 @@ export default function NewsLetterSignUpForm() {
   return AsyncNewsLetterSignupForm();
 }
 
-export default function AsyncNewsLetterSignupForm() {
+export async function AsyncNewsLetterSignupForm() {
   const inputRef = useRef(null);
 
   //Defining the environment variables to be used in the fetch() method
