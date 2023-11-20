@@ -197,7 +197,7 @@ export default function Home() {
 
           .logo-box {
             width: 50%;
-            max-width: 500px;
+            max-width: 300px;
             display: flex;
             align-items: center;
             margin-bottom: 20px;
