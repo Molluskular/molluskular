@@ -14,8 +14,12 @@ export default function Benefit({ scroll }: any) {
     },
     {
       title: "Focused Strength Training",
-      description:
-        "Concentrating solely on strength training, Molluskular offers unrivalled quality in crafting your perfect workout routine.",
+      description: (
+        <>
+          Concentrating solely on strength training, <b>Molluskular</b> offers
+          unrivalled quality in crafting your perfect workout routine.
+        </>
+      ),
     },
   ];
   return (
@@ -109,7 +113,7 @@ export default function Benefit({ scroll }: any) {
                 flex-direction: column;
                 padding: 30px;
                 justify-content: center;
-                align-items:center;
+                align-items:start;
 
                 .txt-02 {
                   font-size: 1.2em;
@@ -117,7 +121,6 @@ export default function Benefit({ scroll }: any) {
                   margin-bottom: 20px;
                 }
               }
-
               .card-even {
                 background-color: rgb(16, 16, 16, 0.8);
               }
