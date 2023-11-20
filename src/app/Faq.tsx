@@ -5,12 +5,12 @@ export default function Faq({ scroll }: any) {
     {
       title: "What kind of personalization does Molluskular offer?",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero et ipsum eos veniam reiciendis non natus repellat voluptatum soluta iure cupiditate, quod animi doloremque voluptatibus? Voluptas reprehenderit pariatur hic! Dicta?",
+        "Molluskular's personalization engine constructs a workout regime that's tailored to your specific goals and fitness level. It's your fitness journey, custom-fitted. Molluskular’s approach is hands-on, allowing you to shape your workout plans according to your goals, available time, and physical condition. Our system is built to craft a plan that evolves with your progress and adapts based on the information you provide.",
     },
     {
       title: "How does Molluskular understand my fitness needs in real-time?",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero et ipsum eos veniam reiciendis non natus repellat voluptatum soluta iure cupiditate, quod animi doloremque voluptatibus? Voluptas reprehenderit pariatur hic! Dicta?",
+        "Molluskular adapts to the information you give it. Say you’ve got less time today than usual, you’re dealing with a new injury, or you want to focus on a different muscle group—just input those details, and Molluskular adjusts your workout plan accordingly. This bespoke adjustment ensures that your plan is always in tune with your current situation, helping you stay on track with your fitness goals even when life throws unexpected challenges your way.",
     },
   ];
 
