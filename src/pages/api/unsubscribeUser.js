@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 
-
+//Based on subscribeUser.js
+//For git commit
 export default async (req, res) => {
   const { email } = req.body;
   console.log({ email });
@@ -13,19 +14,14 @@ export default async (req, res) => {
     const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
     const API_KEY = process.env.MAILCHIMP_API_KEY;
     const DATACENTER = process.env.MAILCHIMP_API_SERVER;
-    const data = {
-      email_address: email,
-      status: 'pending',
-      update_existing: true,
-      send_welcome: true,
-      double_optin: true,
-    };  
+    var md5 = require('md5');
+    const SUBSCRIBER_HASH = md5(email);
 
     const response = await fetch(
-      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
+      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members/${SUBSCRIBER_HASH}/actions/delete-permanent`,
 
       {
-        body: JSON.stringify(data),
+        body: null,
         headers: {
           Authorization: `apikey ${API_KEY}`,
           'Content-Type': 'application/json',
@@ -41,7 +37,7 @@ export default async (req, res) => {
       });
     }
 
-    return res.status(201).json({ error: '' });
+    return res.status(201).json({ error: '201' });
   } catch (error) {
     return res.status(500).json({ error: error.message || error.toString() });
   }
