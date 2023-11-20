@@ -112,20 +112,22 @@ export default function Faq({ scroll }: any) {
 
                   .down-img {
                     width: 20px;
+                    margin-left: 5px;
                   }
                 }
 
                 .txt-03 {
                   width: 100%;
-                  height: 100px;
+                  max-height: 500px;
                   padding: 10px 15px;
                   background-color: black;
-                  transition-duration: 1s;
+                  transition-duration: 0.5s;
+                  transition-timing-function: ease-out;
                   box-sizing: border-box;
                 }
 
                 .closed {
-                  height: 0;
+                  max-height: 0;
                   padding: 0 15px;
                 }
               }

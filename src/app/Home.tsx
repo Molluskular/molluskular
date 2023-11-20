@@ -34,11 +34,11 @@ export default function HomePage({ scroll }: any) {
           </span>
         </div>
         <div className="right">
-          <img
+          {/* <img
             className="img-02"
             src="/background/bg_08.png"
             alt="lifting man"
-          ></img>
+          ></img> */}
           <img className="img" src="/lifting_man.png" alt="lifting man"></img>
         </div>
       </div>
