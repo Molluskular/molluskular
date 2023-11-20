@@ -15,7 +15,10 @@ export default async (req, res) => {
     const DATACENTER = process.env.MAILCHIMP_API_SERVER;
     const data = {
       email_address: email,
-      status: 'subscribed',
+      status: 'pending',
+      update_existing: true,
+      send_welcome: true,
+      double_optin: true,
     };
 
     const response = await fetch(
