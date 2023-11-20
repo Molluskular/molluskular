@@ -131,6 +131,7 @@ export default function HomePage({ scroll }: any) {
             .right {
               z-index: 3;
               width: 35%;
+              align-self: start;
               .img {
                 width: 100%;
               }
