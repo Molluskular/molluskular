@@ -1,5 +1,3 @@
-"use client";
-
 import NewsLetterSignUpForm from "./Subscribe";
 
 export default function HomePage({ scroll }: any) {
