@@ -4,6 +4,7 @@ import "../style/global.scss";
 import Head from "next/head";
 import { AppProps } from "next/app";
 import Script from "next/script";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +22,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Molluskular</title>
-        <Script id="GA-aysnc" async src="https://www.googletagmanager.com/gtag/js?id=G-8PX3W2B98E"></Script>
+        <Script
+          id="GA-aysnc"
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-8PX3W2B98E"
+        ></Script>
         <Script id="GA-gtag" src="/scripts/gtagnew.js"></Script>
-        <Script id="Hotjar" src="/scripts/hotjar.js"></Script>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
       <body className={inter.className}>{children}</body>

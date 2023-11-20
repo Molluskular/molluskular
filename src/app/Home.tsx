@@ -7,9 +7,12 @@ export default function HomePage({ scroll }: any) {
     <div className="page pg-01" ref={scroll}>
       <div className="contents">
         <div className="left">
-          <span className="txt-01 title">
-            GET READY TO REDEFINE <br /> YOUR WORKOUT ROUTINE
-          </span>
+          <div className="txt-box">
+            <span className="txt-01 title">
+              GET READY TO REDEFINE <br /> YOUR WORKOUT ROUTINE
+            </span>
+            <img className="img" src="/background/bg_02.png"></img>
+          </div>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
             redefine your workout routine, guaranteeing exceptional progress and
@@ -62,11 +65,23 @@ export default function HomePage({ scroll }: any) {
               flex-direction: column;
               justify-content: center;
 
-              .txt-01 {
-                width: 100%;
-                font-size: 3em;
+              .txt-box{
+                position:relative;
                 margin-bottom: 10px;
-                line-height: 1.5em;
+                .txt-01 {
+                  position:relative;
+                  z-index: 2;
+                  width: 100%;
+                  font-size: 3em;
+                  line-height: 1.5em;
+                }
+
+                .img{
+                  width: 40%;
+                  position:absolute;
+                  right: 5%;
+                  top: -2%;
+                }
               }
 
               .txt-02 {

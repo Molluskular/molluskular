@@ -35,13 +35,9 @@ export default function Faq({ scroll }: any) {
       <div className="question-list">
         {qList.map((question, i) => (
           <div key={i} className="question-items">
-            <div className="question-item">
+            <div className="question-item" onClick={() => onToggleClick(i)}>
               <span className="txt-02">{question.title}</span>
-              <img
-                src="/down.png"
-                className="down-img"
-                onClick={() => onToggleClick(i)}
-              />
+              <img src="/down.png" className="down-img" />
             </div>
             <span className={`txt-03 ${~toggle & (1 << i) ? "closed" : ""}`}>
               {question.description}
@@ -88,7 +84,7 @@ export default function Faq({ scroll }: any) {
 
             .question-list {
               width: 80%;
-              max-width: 1000px;
+              max-width: 800px;
               display: flex;
               flex-direction: column;
               position: relative;
@@ -97,26 +93,26 @@ export default function Faq({ scroll }: any) {
               .question-items {
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 margin-bottom: 10px;
                 overflow: hidden;
 
                 .question-item {
+                  width: 100%;
                   display: flex;
                   justify-content: space-between;
                   align-items: center;
-                  width: 100%;
                   padding: 15px 15px;
                   background-color: black;
                   border-radius: 10px 10px 0 0;
                   box-sizing: border-box;
-
+                  cursor: pointer;
                   .txt-02 {
                     font-weight: 200;
                   }
 
                   .down-img {
                     width: 20px;
-                    cursor: pointer;
                   }
                 }
 
