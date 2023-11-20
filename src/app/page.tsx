@@ -6,6 +6,7 @@ import Benefit from "./Benefit";
 import Join from "./Join";
 import Faq from "./Faq";
 import useMoveScroll from "../hook/useMoveScroll";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
@@ -13,6 +14,23 @@ export default function Home() {
   const [concept, UseConcept]: any = useMoveScroll();
   const [benefit, UseBenefit]: any = useMoveScroll();
   const [faq, UseFaq]: any = useMoveScroll();
+
+  // const [scrollY, setScrollY] = useState(0);
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setScrollY(window.scrollY);
+  //   };
+
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(window.screen.availHeight);
+  // }, [scrollY]);
 
   const onNavClick = (value: string) => {
     switch (value) {
@@ -35,6 +53,7 @@ export default function Home() {
   return (
     <>
       <main className="main">
+        <img src="/arrow.png" className="arrow-img"></img>
         <div className="background">
           <header className="nav-bar">
             <img src={"/logo.png"} alt="logo" className="logo"></img>
@@ -77,6 +96,15 @@ export default function Home() {
           width: 100vw;
           height: 100vh;
           color: white;
+          position: relative;
+        }
+
+        .arrow-img {
+          width: 31px;
+          position: fixed;
+          z-index: 4;
+          bottom: 20px;
+          left: calc(50% - 15px);
         }
 
         .background {
