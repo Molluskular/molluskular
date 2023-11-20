@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 
 //Based on subscribeUser.js
+//For git commit
 export default async (req, res) => {
   const { email } = req.body;
   console.log({ email });
