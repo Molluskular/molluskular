@@ -19,7 +19,7 @@ export default async (req, res) => {
       update_existing: true,
       send_welcome: true,
       double_optin: true,
-    };
+    };  
 
     const response = await fetch(
       `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
