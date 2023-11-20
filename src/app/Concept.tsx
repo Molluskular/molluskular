@@ -1,5 +1,3 @@
-"use client";
-
 export default function Concept({ scroll }: any) {
   const conceptList = [
     {

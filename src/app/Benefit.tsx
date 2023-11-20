@@ -1,5 +1,3 @@
-"use client";
-
 export default function Benefit({ scroll }: any) {
   const benefitList = [
     {

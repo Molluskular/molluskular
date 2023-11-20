@@ -1,6 +1,4 @@
-"use client";
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Faq({ scroll }: any) {
   const qList = [
@@ -17,6 +15,7 @@ export default function Faq({ scroll }: any) {
   ];
 
   const [toggle, setToggle] = useState(0);
+
   const onToggleClick = (i: number) => {
     if ((~toggle & (1 << i)) == 0) {
       setToggle(toggle & ~(1 << i));
@@ -37,7 +36,7 @@ export default function Faq({ scroll }: any) {
           <div key={i} className="question-items">
             <div className="question-item" onClick={() => onToggleClick(i)}>
               <span className="txt-02">{question.title}</span>
-              <img src="/down.png" className="down-img" />
+              <img src="/arrow.png" className="down-img" />
             </div>
             <span className={`txt-03 ${~toggle & (1 << i) ? "closed" : ""}`}>
               {question.description}
