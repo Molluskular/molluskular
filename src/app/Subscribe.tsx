@@ -44,7 +44,7 @@ export default function NewsLetterSignupForm() {
         type="email"
         id="email-input"
         name="email"
-        placeholder="johnsmit@gmail.com"
+        placeholder="johnsmith@gmail.com"
         ref={inputRef}
         required
         autoCapitalize="off"
