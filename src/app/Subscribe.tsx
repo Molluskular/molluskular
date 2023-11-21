@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
 export default function NewsLetterSignupForm() {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   //Defining the environment variables to be used in the fetch() method
   //These are defined as well in Vercel, and are different in development etc.
@@ -10,13 +10,12 @@ export default function NewsLetterSignupForm() {
   const url = process.env.NEXT_PUBLIC_ROOT_DOMAIN;
   const port = process.env.NEXT_PUBLIC_ROOT_PORT;
   const protocol = process.env.NEXT_PUBLIC_ROOT_PROTOCOL;
-  console.log(url + port);
-  const subscribeUser = async (e) => {
+  const subscribeUser = async (e:any) => {
     e.preventDefault();
 
     const res = await fetch(`${protocol}://${url}:${port}/api/subscribeUser`, {
       body: JSON.stringify({
-        email: inputRef.current.value,
+        email: inputRef.current?.value,
       }),
 
       headers: {

@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 
 //Based on subscribeUser.js
 //For git commit
-export default async (req, res) => {
+export default async (req:any, res:any) => {
   const { email } = req.body;
   console.log({ email });
 
@@ -39,6 +39,10 @@ export default async (req, res) => {
 
     return res.status(201).json({ error: '201' });
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() });
+    if (typeof error === "string") {
+      return res.status(500).json({ error: error.toUpperCase()});
+    } else if(error instanceof Error) {
+      return res.status(500).json({ error: error.message });
+    }
   }
 };

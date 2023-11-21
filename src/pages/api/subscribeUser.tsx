@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 
 
-export default async (req, res) => {
+export default async (req:any, res:any) => {
   const { email } = req.body;
   console.log({ email });
 
@@ -43,6 +43,12 @@ export default async (req, res) => {
 
     return res.status(201).json({ error: '' });
   } catch (error) {
-    return res.status(500).json({ error: error.message || error.toString() });
+    if (typeof error === "string") {
+      return res.status(500).json({ error: error.toUpperCase()});
+    } else if(error instanceof Error) {
+      return res.status(500).json({ error: error.message });
+    } else {
+      return res.status(500).json({ error: 'an unknown error has occured'});
+    }
   }
 };
