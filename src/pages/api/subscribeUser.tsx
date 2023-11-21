@@ -13,6 +13,8 @@ export default async (req:any, res:any) => {
     const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
     const API_KEY = process.env.MAILCHIMP_API_KEY;
     const DATACENTER = process.env.MAILCHIMP_API_SERVER;
+    var md5 = require('md5');
+    const SUBSCRIBER_HASH = md5(email);
     const data = {
       email_address: email,
       status: 'pending',
@@ -22,7 +24,7 @@ export default async (req:any, res:any) => {
     };  
 
     const response = await fetch(
-      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`,
+      `https://${DATACENTER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members/${SUBSCRIBER_HASH}`,
 
       {
         body: JSON.stringify(data),
@@ -30,7 +32,7 @@ export default async (req:any, res:any) => {
           Authorization: `apikey ${API_KEY}`,
           'Content-Type': 'application/json',
         },
-        method: 'POST',
+        method: 'PUT',
       }
     );
 
@@ -41,7 +43,7 @@ export default async (req:any, res:any) => {
       });
     }
 
-    return res.status(201).json({ error: '' });
+    return res.status(201).json({ error: '201: User has been added to our list' });
   } catch (error) {
     if (typeof error === "string") {
       return res.status(500).json({ error: error.toUpperCase()});

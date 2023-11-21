@@ -26,13 +26,13 @@ export default function NewsLetterSignupForm() {
     });
 
     if (res.ok) {
-      var messageBoxes = document.querySelectorAll("[id^=output]");
+      //var messageBoxes = document.querySelectorAll("[id^=output]");
       alert("Thanks for signing up!");
-      for (var i in messageBoxes) {
+      /*for (var i in messageBoxes) {
         try {
           messageBoxes[i].innerHTML = "Thanks for signing up!";
         } catch (error) {}
-      }
+      }*/
     }
   };
   return (
@@ -44,7 +44,7 @@ export default function NewsLetterSignupForm() {
         type="email"
         id="email-input"
         name="email"
-        placeholder="johnsmit@gmail.com"
+        placeholder="johnsmith@gmail.com"
         ref={inputRef}
         required
         autoCapitalize="off"
