@@ -43,6 +43,8 @@ export default async (req:any, res:any) => {
       return res.status(500).json({ error: error.toUpperCase()});
     } else if(error instanceof Error) {
       return res.status(500).json({ error: error.message });
+    } else {
+      return res.status(500).json({ error: 'an unknown error has occured'});
     }
   }
 };
