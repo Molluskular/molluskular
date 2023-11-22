@@ -5,6 +5,7 @@ import Head from "next/head";
 import { AppProps } from "next/app";
 import Script from "next/script";
 import { ChakraProvider } from "@chakra-ui/react";
+import { Providers } from "./Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +32,9 @@ export default function RootLayout({
         <Script id="hotjar" src="/scripts/hotjar.js"></Script>
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

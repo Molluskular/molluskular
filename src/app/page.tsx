@@ -152,7 +152,7 @@ export default function Home() {
 
           .nav-bar {
             margin-top: 40px;
-            width: 86vw;
+            width: 100vw;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -213,6 +213,7 @@ export default function Home() {
           }
 
           .link-box {
+            display: flex;
             margin-top: 40px;
 
             .link {

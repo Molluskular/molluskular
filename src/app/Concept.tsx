@@ -37,7 +37,7 @@ export default function Concept({ scroll }: any) {
       <style jsx>
         {`
           .pg-02 {
-            width: 86vw;
+            width: 100vw;
             height: auto;
             padding: 100px 7vw;
             display: flex;
