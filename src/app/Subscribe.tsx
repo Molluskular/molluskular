@@ -32,7 +32,6 @@ export default function NewsLetterSignupForm() {
 
       method: "POST",
     });
-
     if (res.ok) {
       toast({
         title: "Sign up",
@@ -41,20 +40,22 @@ export default function NewsLetterSignupForm() {
         duration: 18000,
         isClosable: true,
       });
-      //var messageBoxes = document.querySelectorAll("[id^=output]");
-      /*for (var i in messageBoxes) {
-        try {
-          messageBoxes[i].innerHTML = "Thanks for signing up!";
-        } catch (error) {}
-      }*/
-    } else
+    } else if(res.status === 403){
+      toast({
+        title: "Already exists",
+        description: "It seems that this email has already been signed up!",
+        duration: 18000,
+        isClosable: true,
+      });
+    } else {
       toast({
         title: "Sign up",
-        description: "Something wrong! Try again.",
+        description: "Something wrong! Please contact us at signup@molluskular.com if this keeps happening",
         status: "error",
         duration: 3000,
         isClosable: true,
       });
+    }
   };
   return (
     <form onSubmit={subscribeUser} className="signup-input">
@@ -164,7 +165,6 @@ export default function NewsLetterSignupForm() {
           }
         `}
       </style>
-      <p id="output"></p>
     </form>
   );
 }
