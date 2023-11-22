@@ -1,7 +1,9 @@
-import { useRef } from "react";
+import { useToast } from "@chakra-ui/react";
+import { useRef, useState, useEffect } from "react";
 
 export default function NewsLetterSignupForm() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const toast = useToast();
 
   //Defining the environment variables to be used in the fetch() method
   //These are defined as well in Vercel, and are different in development etc.
@@ -10,7 +12,8 @@ export default function NewsLetterSignupForm() {
   const url = process.env.NEXT_PUBLIC_ROOT_DOMAIN;
   const port = process.env.NEXT_PUBLIC_ROOT_PORT;
   const protocol = process.env.NEXT_PUBLIC_ROOT_PROTOCOL;
-  const subscribeUser = async (e:any) => {
+
+  const subscribeUser = async (e: any) => {
     e.preventDefault();
 
     const res = await fetch(`${protocol}://${url}:${port}/api/subscribeUser`, {
@@ -26,14 +29,27 @@ export default function NewsLetterSignupForm() {
     });
 
     if (res.ok) {
+      toast({
+        title: "Sign up",
+        description: "Thanks for signing up!",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
       //var messageBoxes = document.querySelectorAll("[id^=output]");
-      alert("Thanks for signing up!");
       /*for (var i in messageBoxes) {
         try {
           messageBoxes[i].innerHTML = "Thanks for signing up!";
         } catch (error) {}
       }*/
-    }
+    } else
+      toast({
+        title: "Sign up",
+        description: "Something wrong! Try again.",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
   };
   return (
     <form onSubmit={subscribeUser} className="signup-input">

@@ -47,7 +47,7 @@ export default function HomePage({ scroll }: any) {
           display:flex;
           justify-content: center;
           align-items:center;
-          width: 85vw;
+          width: 100vw;
           min-height: 100vh;
           padding: 0 7vw;
           z-index: -2;
@@ -104,6 +104,7 @@ export default function HomePage({ scroll }: any) {
                 position: relative;
                 border-radius: 30px;
                 z-index: 1;
+                box-sizing: content-box;
 
                 .bg-img{
                     width:100%;
@@ -211,7 +212,7 @@ export default function HomePage({ scroll }: any) {
         }
         @media only screen and (max-width: 760px) {
           .pg-01 {
-          width: 85vw;
+          width: 100vw;
           min-height: 95vh;
           padding: 0 7vw;
 
