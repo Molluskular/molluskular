@@ -3,7 +3,12 @@ import { useRef, useState, useEffect } from "react";
 
 export default function NewsLetterSignupForm() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const toast = useToast();
+  const toast = useToast({
+    containerStyle: {
+      width: "90%",
+      maxWidth: "750px",
+    },
+  });
 
   //Defining the environment variables to be used in the fetch() method
   //These are defined as well in Vercel, and are different in development etc.
@@ -33,7 +38,7 @@ export default function NewsLetterSignupForm() {
         title: "Sign up",
         description: "Thanks for signing up!",
         status: "success",
-        duration: 3000,
+        duration: 18000,
         isClosable: true,
       });
       //var messageBoxes = document.querySelectorAll("[id^=output]");
