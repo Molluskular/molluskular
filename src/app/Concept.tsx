@@ -67,7 +67,7 @@ export default function Concept({ scroll }: any) {
 
             .concepts {
               display: flex;
-              justify-content: space-between;
+              justify-content: center;
 
               .concept-item {
                 display: flex;
@@ -86,7 +86,7 @@ export default function Concept({ scroll }: any) {
                 }
 
                 .txt-02 {
-                  width: 60%;
+                  width: 80%;
                 }
               }
             }
