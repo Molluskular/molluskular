@@ -13,7 +13,11 @@ export default function Join() {
         By signing up, you agree to be on our email list for <br />
         updates on Molluskular&apos;s launch and features.
         <br />
-        <u><a href="https://molluskular.us21.list-manage.com/unsubscribe?u=da2d1b30e232d3dbd79cf67f9&id=fda980f726">Opt-out anytime.</a></u>
+        <u>
+          <a href="https://molluskular.us21.list-manage.com/unsubscribe?u=da2d1b30e232d3dbd79cf67f9&id=fda980f726">
+            Opt-out anytime.
+          </a>
+        </u>
       </span>
 
       <style jsx>{`
@@ -83,6 +87,7 @@ export default function Join() {
           }
 
           .txt-03 {
+            font-size: 0.8em;
             margin-top: 30px;
             text-align: center;
           }
