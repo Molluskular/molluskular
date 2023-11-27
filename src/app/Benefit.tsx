@@ -84,7 +84,7 @@ export default function Benefit({ scroll }: any) {
           }
 
           .benefit-box {
-            width: 60%;
+            width: 70%;
             height: fit-content;
             border-radius: 15px;
             display: flex;
@@ -109,7 +109,7 @@ export default function Benefit({ scroll }: any) {
                 display: flex;
                 flex: 1;
                 flex-direction: column;
-                padding: 30px;
+                padding: 50px;
                 justify-content: center;
                 align-items:start;
 

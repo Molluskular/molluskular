@@ -6,10 +6,16 @@ export default function HomePage({ scroll }: any) {
       <div className="contents">
         <div className="left">
           <div className="txt-box">
-            <span className="txt-01 title">
-              GET READY TO REDEFINE <br /> YOUR WORKOUT ROUTINE
-            </span>
-            <img className="img" src="/background/bg_02.png"></img>
+            <div className="txt-box-01">
+              <div className="txt-box-02">
+                <span className="txt-01 title">GET READY TO&nbsp;</span>
+                <div className="img-box">
+                  <span className="txt-01 title">REDEFINE</span>
+                  <img className="img" src="/background/bg_02.png"></img>
+                </div>
+              </div>
+              <span className="txt-01 title">YOUR WORKOUT ROUTINE</span>
+            </div>
           </div>
           <span className="txt-02">
             Tailored to your unique needs, our personalized AI-driven app will
@@ -30,7 +36,11 @@ export default function HomePage({ scroll }: any) {
             By signing up, you agree to be on our email list for <br />
             updates on Molluskular&apos;s launch and features.
             <br />
-            <u><a href="https://molluskular.us21.list-manage.com/unsubscribe?u=da2d1b30e232d3dbd79cf67f9&id=fda980f726">Opt-out anytime.</a></u>
+            <u>
+              <a href="https://molluskular.us21.list-manage.com/unsubscribe?u=da2d1b30e232d3dbd79cf67f9&id=fda980f726">
+                Opt-out anytime.
+              </a>
+            </u>
           </span>
         </div>
         <div className="right">
@@ -71,20 +81,35 @@ export default function HomePage({ scroll }: any) {
               .txt-box{
                 position:relative;
                 margin-bottom: 10px;
-                .txt-01 {
-                  position:relative;
-                  z-index: 2;
-                  width: 100%;
-                  font-size: 3em;
-                  line-height: 1.5em;
+
+                .txt-box-01{
+                  display:flex;
+                  flex-direction: column;
+
+                  .txt-box-02{
+                    width: fit-content;
+                    display:flex;
+                    justify-content:start;
+
+                    .img-box{
+                      position:relative;
+                      .img{
+                        position:absolute;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                      }
+                    }
+                  }
                 }
 
-                .img{
-                  width: 40%;
-                  position:absolute;
-                  right: 5%;
-                  top: -2%;
-                }
+                .txt-01 {
+                     position:relative;
+                      z-index: 2;
+                      width: 100%;
+                      font-size: 3em;
+                      line-height: 1.5em;
+                    }
               }
 
               .txt-02 {
@@ -131,6 +156,7 @@ export default function HomePage({ scroll }: any) {
                 width: 50%;
                 text-align: center;
                 margin-left: 6%;
+                font-size : 0.8em;
               }
             }
 

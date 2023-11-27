@@ -107,9 +107,9 @@ export default function Home() {
               real-time adaptable workout plans.
             </span>
             <div className="link-box">
-              <img src="/instagram.png" alt="logo" className="link" />
-              <img src="/twitter.png" alt="logo" className="link" />
-              <img src="/facebook.png" alt="logo" className="link" />
+              <img src="/instagram.png" alt="logo" className="link insta" />
+              <img src="/twitter.png" alt="logo" className="link twitter" />
+              <img src="/facebook.png" alt="logo" className="link facebook" />
             </div>
           </footer>
         </div>
@@ -199,7 +199,7 @@ export default function Home() {
             width: 50%;
             max-width: 300px;
             display: flex;
-            align-items: center;
+            align-items: end;
             margin-bottom: 20px;
 
             .logo {
@@ -217,7 +217,23 @@ export default function Home() {
             margin-top: 40px;
 
             .link {
+              height: 30px;
+
               margin: 0 10px;
+            }
+
+            .twitter {
+              width: calc(30px * 155 / 144);
+
+              /* height: 30px; */
+            }
+
+            .facebook {
+              width: calc(30px * 91 / 155);
+            }
+
+            .insta {
+              width: calc(30px * 155 / 172);
             }
           }
         }
