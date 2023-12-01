@@ -40,7 +40,7 @@ export default function NewsLetterSignupForm() {
         duration: 5000,
         isClosable: true,
       });
-    } else if(res.status === 403){
+    } else if (res.status === 403) {
       toast({
         title: "Already exists",
         description: "It seems that this email has already been signed up!",
@@ -50,7 +50,8 @@ export default function NewsLetterSignupForm() {
     } else {
       toast({
         title: "Sign up",
-        description: "Something wrong! Please contact us at signup@molluskular.com if this keeps happening",
+        description:
+          "Something wrong! Please contact us at signup@molluskular.com if this keeps happening",
         status: "error",
         duration: 5000,
         isClosable: true,
@@ -87,6 +88,7 @@ export default function NewsLetterSignupForm() {
             width: 60%;
             max-width: 500px;
             position: relative;
+            z-index: 1;
             cursor: pointer;
             font-weight: 200;
 

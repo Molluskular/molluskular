@@ -146,10 +146,12 @@ export default function HomePage({ scroll }: any) {
 
               .txt-03 {
                 position: relative;
+                z-index: 1;
                 font-size: 1.5em;
               }
               .txt-04 {
                 position: relative;
+                z-index: 1;
                 font-size: 0.8em;
                 font-weight: 100;
                 text-align: center;
@@ -157,6 +159,8 @@ export default function HomePage({ scroll }: any) {
             }
 
             .txt-05 {
+              position: relative;
+              z-index: 1;
               width: 50%;
               text-align: center;
               margin-left: 6%;
