@@ -66,7 +66,6 @@ export default function Home() {
         model: "gpt-3.5-turbo",
       });
 
-      console.log(completion);
       if (completion.choices[0].message.content != "x") {
         processAnswer(completion.choices[0].message.content);
       } else {
@@ -77,19 +76,46 @@ export default function Home() {
     }
   };
 
+  const onDelete = (idx: number) => {
+    setExcerciseList(excerciseList.filter((_, index) => index !== idx));
+  };
+  const onPlus = (idx: number) => {
+    setExcerciseList([...excerciseList, recommendedExcercise[idx]]);
+    setRecommendedExcercise(
+      recommendedExcercise.filter((_, index) => index !== idx)
+    );
+  };
+
   return (
     <div className="mockup">
       <div className="routine-box">
         <div className="top">
           <div className="routine">
-            {excerciseList.map((excercise) => (
-              <div className="excercise-item">{excercise}</div>
+            {excerciseList.map((excercise, i) => (
+              <div className="excercise-item">
+                <span>{excercise}</span>
+                <img
+                  onClick={() => onDelete(i)}
+                  src={"/remove.png"}
+                  className="remove"
+                ></img>
+              </div>
             ))}
           </div>
           <div className="recommended">
-            {recommendedExcercise.map((excercise) => (
-              <div className="recommended-excercise-item">{excercise}</div>
-            ))}
+            {recommendedExcercise.map(
+              (excercise, i) =>
+                excercise != "" && (
+                  <div className="recommended-excercise-item">
+                    <span>{excercise}</span>
+                    <img
+                      onClick={() => onPlus(i)}
+                      src={"/remove.png"}
+                      className="remove"
+                    ></img>
+                  </div>
+                )
+            )}
           </div>
         </div>
         <div className="bottom">
@@ -132,10 +158,14 @@ export default function Home() {
                   .excercise-item {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: space-between;
                     height: 30px;
                     border-radius: 10px;
                     margin-bottom: 10px;
+
+                    .remove {
+                      width: 15px;
+                    }
                   }
                 }
                 .recommended {
@@ -148,10 +178,15 @@ export default function Home() {
                   .recommended-excercise-item {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
-                    height: 30px;
+                    justify-content: space-between;
+                    height: fit-content;
                     border-radius: 10px;
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
+                  }
+
+                  .remove {
+                    width: 15px;
+                    transform: rotate(45deg);
                   }
                 }
               }
