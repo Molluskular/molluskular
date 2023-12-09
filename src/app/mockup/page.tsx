@@ -46,7 +46,7 @@ export default function Home() {
 
     const [, drop] = useDrop({
       accept: ItemType,
-      hover: (draggedItem) => {
+      hover: (draggedItem: any) => {
         if (draggedItem.index !== index) {
           moveItem(draggedItem.index, index);
           draggedItem.index = index;
@@ -108,7 +108,7 @@ export default function Home() {
     );
   };
   //drag end
-  const onChange = (e) => {
+  const onChange = (e: any) => {
     setQuestion(e.target.value);
   };
 
