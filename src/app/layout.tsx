@@ -23,13 +23,13 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <title>Molluskular</title>
-        <Script
+        {process.env.NODE_ENV === "production" && (<Script
           id="GA-aysnc"
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-8PX3W2B98E"
-        ></Script>
-        <Script id="GA-gtag" src="/scripts/gtagnew.js"></Script>
-        <Script id="hotjar" src="/scripts/hotjar.js"></Script>
+        ></Script>)}
+        {process.env.NODE_ENV === "production" && (<Script id="GA-gtag" src="/scripts/gtagnew.js"></Script> )}
+        {process.env.NODE_ENV === "production" && (<Script id="hotjar" src="/scripts/hotjar.js"></Script>)}
         <link rel="icon" type="image/x-icon" href="/favicon.png" />
       </head>
       <body className={inter.className}>
