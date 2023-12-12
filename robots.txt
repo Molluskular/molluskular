@@ -1,0 +1,7 @@
+User-agent: Googlebot
+Disallow: /mockup
+
+User-agent: *
+Allow: /
+
+Sitemap: https://molluskular.com/sitemap.xml
