@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>Molluskular's website.</title>
+        <title>Molluskulars website.</title>
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Molluskular Development Team <3, made in The Netherlands by internationals" />
         {process.env.NODE_ENV === "production" && (<Script
