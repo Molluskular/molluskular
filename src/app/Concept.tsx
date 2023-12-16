@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Concept({ scroll }: any) {
   const conceptList = [
     {
@@ -23,12 +25,31 @@ export default function Concept({ scroll }: any) {
     <div className="page pg-02" ref={scroll}>
       <div className="txt-box">
         <span className="title txt">Our CONCEPT</span>
-        <img src="/background/txt_bg.png" className="img"></img>
+        <Image
+          priority={true}
+          src="/background/txt_bg.png"
+          alt="back"
+          width={100}
+          height={100}
+          style={{ width: "100%", position: "absolute", top: "-5px", left: 0 }}
+        ></Image>
       </div>
       <div className="concepts">
         {conceptList.map((concept, i) => (
           <div className="concept-item" key={i}>
-            <img src={concept.image} alt="concept" className="img"></img>
+            <Image
+              priority={true}
+              src={concept.image}
+              alt="concept"
+              className="img"
+              width={100}
+              height={100}
+              style={{
+                width: "80px",
+                height: "80px",
+                marginBottom: "30px",
+              }}
+            ></Image>
             <span className="txt-01">{concept.title}</span>
             <span className="txt-02">{concept.description}</span>
           </div>

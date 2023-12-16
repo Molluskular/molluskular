@@ -8,6 +8,7 @@ import Faq from "./Faq";
 import useMoveScroll from "../hook/useMoveScroll";
 import { useEffect, useState } from "react";
 import useScrollY from "@/hook/useScrollY";
+import Image from "next/image";
 
 export default function Home() {
   const navContent = ["Home", "|", "Our Concept", "|", "Benefit", "|", "FAQ"];
@@ -73,12 +74,26 @@ export default function Home() {
         <div className="background">
           <header className="nav-bar">
             <div className="nav-logo-box">
-              <img src={"/logo.png"} alt="logo" className="nav-logo"></img>
-              <img
+              <Image
+                priority={true}
+                width={100}
+                height={100}
+                src={"/logo.png"}
+                alt="logo"
+                className="nav-logo"
+                style={{ width: "40%" }}
+              ></Image>
+              <Image
+                priority={true}
                 src={"/logo-txt.png"}
                 alt="logo"
                 className="nav-logo-txt"
-              ></img>
+                width={100}
+                height={100}
+                style={{
+                  width: "60%",
+                }}
+              ></Image>
             </div>
             <nav className="nav-content">
               {navContent.map((text, i) => (
@@ -99,17 +114,72 @@ export default function Home() {
           <Faq scroll={faq}></Faq>
           <footer>
             <div className="logo-box">
-              <img src="/logo.png" alt="logo" className="logo" />
-              <img src="/logo-half-txt.png" alt="logo" className="logo-txt" />
+              <Image
+                priority={true}
+                src="/logo.png"
+                alt="logo"
+                className="logo"
+                width={100}
+                height={100}
+                style={{
+                  width: "20%",
+                  marginRight: "3%",
+                }}
+              />
+              <Image
+                priority={true}
+                src="/logo-half-txt.png"
+                alt="logo"
+                className="logo-txt"
+                width={100}
+                height={100}
+                style={{ width: "80%" }}
+              />
             </div>
             <span>
               Follow our journey towards personalizing your fitness with
               real-time adaptable workout plans.
             </span>
             <div className="link-box">
-              <img src="/instagram.png" alt="logo" className="link insta" />
-              <img src="/twitter.png" alt="logo" className="link twitter" />
-              <img src="/facebook.png" alt="logo" className="link facebook" />
+              <Image
+                priority={true}
+                src="/instagram.png"
+                alt="logo"
+                className="link insta"
+                width={50}
+                height={50}
+                style={{
+                  height: "30px",
+                  margin: "0 10px",
+                  width: "calc(30px * 155 / 172)",
+                }}
+              />
+              <Image
+                priority={true}
+                src="/twitter.png"
+                alt="logo"
+                className="link twitter"
+                width={50}
+                height={50}
+                style={{
+                  height: "30px",
+                  margin: "0 10px",
+                  width: "calc(30px * 155 / 144)",
+                }}
+              />
+              <Image
+                priority={true}
+                src="/facebook.png"
+                alt="logo"
+                className="link facebook"
+                width={50}
+                height={50}
+                style={{
+                  height: "30px",
+                  margin: "0 10px",
+                  width: "calc(30px * 91 / 155)",
+                }}
+              />
             </div>
           </footer>
         </div>
@@ -166,14 +236,6 @@ export default function Home() {
               display: flex;
               align-items: center;
               justify-content: center;
-
-              .nav-logo {
-                width: 40%;
-              }
-
-              .nav-logo-txt {
-                width: 60%;
-              }
             }
             .nav-content {
               width: 100%;
@@ -201,40 +263,11 @@ export default function Home() {
             display: flex;
             align-items: end;
             margin-bottom: 20px;
-
-            .logo {
-              width: 20%;
-              margin-right: 3%;
-            }
-
-            .logo-txt {
-              width: 80%;
-            }
           }
 
           .link-box {
             display: flex;
             margin-top: 40px;
-
-            .link {
-              height: 30px;
-
-              margin: 0 10px;
-            }
-
-            .twitter {
-              width: calc(30px * 155 / 144);
-
-              /* height: 30px; */
-            }
-
-            .facebook {
-              width: calc(30px * 91 / 155);
-            }
-
-            .insta {
-              width: calc(30px * 155 / 172);
-            }
           }
         }
 

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { DndProvider, useDrag, useDrop } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import allExcercistList from "./excercise";
+import Image from "next/image";
 
 export default function Home() {
   const ItemType = "DRAGGABLE_ITEM";
@@ -71,13 +72,17 @@ export default function Home() {
         ref={(node) => ref(drop(node))}
       >
         <span>{text}</span>
-        <img
+        <Image
+          priority={true}
+          width={100}
+          height={100}
           style={{ width: "15px", cursor: "pointer" }}
           onClick={() => onDelete(index)}
           src={"/remove.png"}
           className="remove"
+          alt="remove"
           id="remove"
-        ></img>
+        ></Image>
       </div>
     );
   };
@@ -229,11 +234,20 @@ export default function Home() {
                 excercise != "" && (
                   <div key={i} className="recommended-excercise-item">
                     <span>{excercise}</span>
-                    <img
+                    <Image
+                      priority={true}
                       onClick={() => onPlus(i)}
                       src={"/remove.png"}
+                      alt="remove"
                       className="remove"
-                    ></img>
+                      width={100}
+                      height={100}
+                      style={{
+                        width: "15px",
+                        transform: "rotate(45deg)",
+                        cursor: "pointer",
+                      }}
+                    ></Image>
                   </div>
                 )
             )}
@@ -247,12 +261,19 @@ export default function Home() {
             className="input"
             placeholder="type your condition"
           ></input>
-          <img
+          <Image
+            priority={true}
             src={"/send.png"}
             alt="send"
             onClick={onSubmit}
             className="button"
-          ></img>
+            width={45}
+            height={70}
+            style={{
+              cursor: "pointer",
+              transform: "scale(0.7)",
+            }}
+          ></Image>
         </div>
       </div>
       <style jsx>
@@ -322,12 +343,6 @@ export default function Home() {
                     border-radius: 10px;
                     margin-bottom: 15px;
                   }
-
-                  .remove {
-                    width: 15px;
-                    transform: rotate(45deg);
-                    cursor:pointer;
-                  }
                 }
               }
 
@@ -343,10 +358,6 @@ export default function Home() {
                   width: 100%;
                   height: 100%;
                   background-color: transparent;
-                }
-                .button {
-                  cursor: pointer;
-                  transform: scale(0.7);
                 }
               }
             }

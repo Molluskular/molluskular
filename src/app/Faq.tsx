@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function Faq({ scroll }: any) {
@@ -26,17 +27,54 @@ export default function Faq({ scroll }: any) {
 
   return (
     <div className="page pg-05" ref={scroll}>
-      <img src="/background/bg_03.png" alt="bg" className="bg" />
+      <Image
+        priority={true}
+        src="/background/bg_03.png"
+        alt="bg"
+        className="bg"
+        width={100}
+        height={100}
+        style={{
+          position: "absolute",
+          width: "60%",
+          right: "-40%",
+          maxWidth: "1000px",
+        }}
+      />
       <div className="txt-box">
         <span className="title txt-01">FAQ&apos;S</span>
-        <img src="/background/txt_bg.png" alt="txt_bg" className="img" />
+        <Image
+          priority={true}
+          src="/background/txt_bg.png"
+          alt="txt_bg"
+          className="img"
+          width={100}
+          height={100}
+          style={{
+            width: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0,
+          }}
+        />
       </div>
       <div className="question-list">
         {qList.map((question, i) => (
           <div key={i} className="question-items">
             <div className="question-item" onClick={() => onToggleClick(i)}>
               <span className="txt-02">{question.title}</span>
-              <img src="/arrow.png" className="down-img" />
+              <Image
+                priority={true}
+                src="/arrow.png"
+                className="down-img"
+                alt="arrow"
+                width={50}
+                height={50}
+                style={{
+                  width: "20px",
+                  marginLeft: "5px",
+                }}
+              />
             </div>
             <span className={`txt-03 ${~toggle & (1 << i) ? "closed" : ""}`}>
               {question.description}
@@ -55,12 +93,6 @@ export default function Faq({ scroll }: any) {
             padding: 100px 0;
             position: relative;
             overflow: hidden;
-            .bg {
-              position: absolute;
-              width: 60%;
-              right: -40%;
-              max-width: 1000px;
-            }
 
             .txt-box {
               position: relative;
@@ -71,13 +103,6 @@ export default function Faq({ scroll }: any) {
                 z-index: 1;
                 font-size: 2em;
                 font-weight: 300;
-              }
-
-              .img {
-                width: 100%;
-                position: absolute;
-                top: 0;
-                left: 0;
               }
             }
 
@@ -108,11 +133,6 @@ export default function Faq({ scroll }: any) {
                   cursor: pointer;
                   .txt-02 {
                     font-weight: 200;
-                  }
-
-                  .down-img {
-                    width: 20px;
-                    margin-left: 5px;
                   }
                 }
 

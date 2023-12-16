@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Benefit({ scroll }: any) {
   const benefitList = [
     {
@@ -22,14 +24,40 @@ export default function Benefit({ scroll }: any) {
   ];
   return (
     <div className="page pg-03" ref={scroll}>
-      <img src="/background/bg_06.png" alt="bg-01" className="bg-01" />
-      <img src="/background/bg_07.png" alt="bg-02" className="bg-02" />
+      <Image
+        priority={true}
+        src="/background/bg_06.png"
+        alt="bg-01"
+        className="bg-01"
+        width={200}
+        height={200}
+        style={{ width: "30%", position: "absolute", top: 0, right: 0 }}
+      />
+      <Image
+        priority={true}
+        src="/background/bg_07.png"
+        alt="bg-02"
+        className="bg-02"
+        width={200}
+        height={200}
+        style={{ width: "30%", position: "absolute", bottom: 0, left: 0 }}
+      />
       <div className="txt-box">
         <span className="title txt-01">Benefits</span>
-        <img src="/background/txt_bg.png" className="img" />
+        <Image
+          priority={true}
+          src="/background/txt_bg.png"
+          alt="background"
+          className="img"
+          width={200}
+          height={200}
+          style={{ width: "100%", top: 0, left: 0, position: "absolute" }}
+        />
       </div>
       <div className="benefit-box">
-        <img src="/muscle.png" alt="benefit" className="benefit-img" />
+        <div className="benefit-img">
+          <Image fill src="/muscle.png" alt="benefit" objectFit="contain" />
+        </div>
         <div className="benefit-cards">
           {benefitList.map((benefit, i) => (
             <div key={i} className={i % 2 == 0 ? `card` : `card card-even`}>
@@ -49,19 +77,6 @@ export default function Benefit({ scroll }: any) {
           padding: 100px 0;
           background-color: #191919;
           position: relative;
-
-          .bg-01 {
-            width: 30%;
-            position: absolute;
-            top: 0;
-            right: 0;
-          }
-          .bg-02 {
-            width: 30%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-          }
 
           .txt-box {
             margin-bottom: 50px;
@@ -85,7 +100,6 @@ export default function Benefit({ scroll }: any) {
 
           .benefit-box {
             width: 70%;
-            height: fit-content;
             border-radius: 15px;
             display: flex;
             background-color: rgb(32, 32, 32, 0.2);
@@ -94,14 +108,15 @@ export default function Benefit({ scroll }: any) {
             z-index: 2;
 
             .benefit-img {
+              position:relative;
               width: 40%;
-              max-width: 400px;
               height: auto;
               border-radius: 15px 0px 0px 15px;
             }
 
             .benefit-cards {
               height: auto;
+              flex:1;
               display: flex;
               flex-direction: column;
               justify-content: space-between;

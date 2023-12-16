@@ -1,3 +1,4 @@
+import Image from "next/image";
 import NewsLetterSignUpForm from "./Subscribe";
 
 export default function HomePage({ scroll }: any) {
@@ -10,7 +11,20 @@ export default function HomePage({ scroll }: any) {
               <span className="txt-01 title">GET READY TO&nbsp;</span>
               <div className="img-box">
                 <span className="txt-01 title">REDEFINE</span>
-                <img className="img" src="/background/bg_02.png"></img>
+                <Image
+                  priority={true}
+                  className="img"
+                  src="/background/bg_02.png"
+                  alt="back"
+                  width={200}
+                  height={200}
+                  style={{
+                    position: "absolute",
+                    width: "100%",
+                    top: 0,
+                    left: 0,
+                  }}
+                ></Image>
               </div>
             </div>
             <span className="txt-01 title">YOUR WORKOUT ROUTINE</span>
@@ -22,7 +36,22 @@ export default function HomePage({ scroll }: any) {
           success in your fitness journey.
         </span>
         <div className="signup-box">
-          <img className="bg-img" src="/background/bg_04.png" />
+          <Image
+            priority={true}
+            className="bg-img"
+            src="/background/bg_04.png"
+            alt="back"
+            width={500}
+            height={500}
+            style={{
+              width: "100%",
+              position: "absolute",
+              top: "-70%",
+              left: "-10%",
+              zIndex: 0,
+              opacity: 0.5,
+            }}
+          />
           <span className="title txt-03">SIGN UP FOR EARLY ACCESS</span>
           <span className="txt-04">
             Be among the first to experience our groundbreaking features.
@@ -46,11 +75,14 @@ export default function HomePage({ scroll }: any) {
             src="/background/bg_08.png"
             alt="lifting man"
           ></img> */}
-        <img
-          className="hero-img"
-          src="/lifting_man.png"
-          alt="lifting man"
-        ></img>
+        <div className="hero-img">
+          <Image
+            src="/lifting_man.png"
+            alt="lifting man"
+            fill
+            objectFit="contain"
+          ></Image>
+        </div>
       </div>
       <style jsx>{`
         .pg-01 {
@@ -71,6 +103,7 @@ export default function HomePage({ scroll }: any) {
 
             .hero-img {
               width: 35%;
+              height: 100%;
               position: absolute;
               right: 7vw;
             }
@@ -97,12 +130,6 @@ export default function HomePage({ scroll }: any) {
 
                   .img-box {
                     position: relative;
-                    .img {
-                      position: absolute;
-                      width: 100%;
-                      top: 0;
-                      left: 0;
-                    }
                   }
                 }
               }
@@ -134,15 +161,6 @@ export default function HomePage({ scroll }: any) {
               border-radius: 30px;
               z-index: 1;
               box-sizing: content-box;
-
-              .bg-img {
-                width: 100%;
-                position: absolute;
-                top: -70%;
-                left: -10%;
-                z-index: 0;
-                opacity: 0.5;
-              }
 
               .txt-03 {
                 position: relative;
@@ -239,15 +257,6 @@ export default function HomePage({ scroll }: any) {
                 position: relative;
                 border-radius: 30px;
                 z-index: 1;
-
-                .bg-img {
-                  width: 100%;
-                  position: absolute;
-                  top: -70%;
-                  left: -10%;
-                  z-index: 0;
-                  opacity: 0.5;
-                }
 
                 .txt-03 {
                   position: relative;
