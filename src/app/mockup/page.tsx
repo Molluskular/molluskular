@@ -7,10 +7,17 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import allExcercistList from "./excercise";
 import Image from "next/image";
 
+interface answer {
+  name: string;
+  set: number;
+}
+
 export default function Home() {
   const ItemType = "DRAGGABLE_ITEM";
   const [excerciseList, setExcerciseList] = useState(allExcercistList.leg);
-  const [recommendedExcercise, setRecommendedExcercise] = useState([""]);
+  const [recommendedExcercise, setRecommendedExcercise] = useState<answer[]>(
+    []
+  );
   const [excerciseType, setExcerciseType] = useState("leg");
   const [question, setQuestion] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,7 +46,7 @@ export default function Home() {
   }, [excerciseType]);
 
   //drag start
-  const DraggableItem = ({ id, text, index, moveItem }: any) => {
+  const DraggableItem = ({ set, id, text, index, moveItem }: any) => {
     const [, ref] = useDrag({
       type: ItemType,
       item: { id, index },
@@ -71,6 +78,7 @@ export default function Home() {
         className="excercise-item"
         ref={(node) => ref(drop(node))}
       >
+        <span>{set}sets</span>
         <span>{text}</span>
         <Image
           priority={true}
@@ -107,6 +115,7 @@ export default function Home() {
             text={item.text}
             index={index}
             moveItem={moveItem}
+            set={item.set}
           />
         ))}
       </div>
@@ -124,29 +133,31 @@ export default function Home() {
     });
     todayExcerciseList = todayExcerciseList.slice(0, -1);
 
-    const content = `If I tell you the exercise part and my condition, let me know some names of excercise for my condition without rest . For output, print only the exercise name by adding “-” in front.
+    const content = `
+    From now on, your role is AI fitness planner. If I tell you the exercise part and my condition, let me know some names of excercise that suit my condition without rest.
+Don't recommend it if you think it won't be good for your condition.
+For output, it must be array of JSON which has two property "name" and  "set" which can put as a parameter of Array constructure directly. "name" field is excercise name and "set" field is number of recommended set.
     excercise part: ${excerciseType}
     my condition: ${question}`;
 
     return content;
   };
 
-  const processAnswer = (answer: string | null) => {
-    if (answer != null) {
-      const matches = answer.match(/-(.*?)\n/g);
+  // const processAnswer = (answer: string | null) => {
+  //   if (answer != null) {
+  //     const matches = answer.match(/-(.*?)\n/g);
 
-      if (matches) {
-        let extractedStrings = matches.map((match) =>
-          match.substring(1, match.length - 1)
-        );
+  //     if (matches) {
+  //       let extractedStrings = matches.map((match) =>
+  //         match.substring(1, match.length - 1)
+  //       );
 
-        console.log(extractedStrings);
-        setRecommendedExcercise(extractedStrings);
-      } else {
-        alert("Please ask again");
-      }
-    }
-  };
+  //       setRecommendedExcercise(extractedStrings);
+  //     } else {
+  //       alert("Please ask again");
+  //     }
+  //   }
+  // };
 
   const onSubmit = async () => {
     if (loading) {
@@ -165,9 +176,10 @@ export default function Home() {
         model: "gpt-3.5-turbo",
       });
 
-      if (completion.choices[0].message.content != "x") {
-        processAnswer(completion.choices[0].message.content);
-      } else {
+      try {
+        let answerData = completion.choices[0].message.content;
+        setRecommendedExcercise(JSON.parse(answerData as string));
+      } catch (err) {
         alert("Please ask other question");
       }
 
@@ -184,7 +196,11 @@ export default function Home() {
   const onPlus = (idx: number) => {
     setExcerciseList([
       ...excerciseList,
-      { id: excerciseList.length + 1, text: recommendedExcercise[idx] },
+      {
+        id: excerciseList.length + 1,
+        text: recommendedExcercise[idx].name,
+        set: recommendedExcercise[idx].set,
+      },
     ]);
     setRecommendedExcercise(
       recommendedExcercise.filter((_, index) => index !== idx)
@@ -231,9 +247,12 @@ export default function Home() {
             <span className="title">recommended</span>
             {recommendedExcercise.map(
               (excercise, i) =>
-                excercise != "" && (
+                excercise.name != "" && (
                   <div key={i} className="recommended-excercise-item">
-                    <span>{excercise}</span>
+                    <div className="txt-box">
+                      <span>{excercise.name}</span>
+                      <span>{excercise.set}sets</span>
+                    </div>
                     <Image
                       priority={true}
                       onClick={() => onPlus(i)}
@@ -342,6 +361,11 @@ export default function Home() {
                     height: fit-content;
                     border-radius: 10px;
                     margin-bottom: 15px;
+
+                    .txt-box{
+                      display:flex;
+                      flex-direction:column;
+                    }
                   }
                 }
               }
